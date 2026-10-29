@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.9 Your first insights · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .kpi { padding: 20px; }
+  .kpi .v { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .bars { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+  .bars li { display: grid; grid-template-columns: 140px 1fr 44px; gap: 12px; align-items: center; }
+  .bar { height: 10px; border-radius: 5px; background: var(--accent); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .idle { list-style: none; margin: 16px 0 0; padding: 0; font-size: 14px; }
+  .idle li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .idle li:last-child { border-bottom: 0; }
+  .suggest { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; padding: 20px; border-radius: 12px; background: var(--accent-soft); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="row" style="gap: 8px"><span class="pill">Acme AI</span><span class="pill pill-ok">Insights on</span></div>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="row" style="justify-content: space-between; align-items: flex-end">
+      <div class="stack" style="gap: 6px">
+        <h1 style="font-size: 32px">How you use your agent</h1>
+        <p class="hint">Just you · last 7 days · backfilled from your local session logs · sample data</p>
+      </div>
+      <a class="btn btn-ghost" href="10-share.html">Share a resource</a>
+    </div>
+
+    <div class="kpis">
+      <div class="card kpi"><span class="hint">Agent sessions</span><div class="v">46</div></div>
+      <div class="card kpi"><span class="hint">Resources used</span><div class="v">14 <span class="hint" style="font-size: 16px; font-weight: 400">of 21</span></div></div>
+      <div class="card kpi"><span class="hint">MCP tool calls</span><div class="v">1,204</div></div>
+      <div class="card kpi"><span class="hint">Failed tool calls</span><div class="v">38</div></div>
+    </div>
+
+    <div class="suggest">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F35C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+      <div class="stack" style="gap: 4px; flex: 1 1 320px">
+        <strong>Your agent calls the github MCP 9× per PR review, but pr-reviewer already gets that diff.</strong>
+        <span class="hint" style="color: #2A3A9E">Tell pr-reviewer to use the diff it already has. That should cut about a third of the tokens in those sessions.</span>
+      </div>
+      <a class="btn btn-primary btn-sm" href="#">Show me the change</a>
+    </div>
+
+    <div class="cols">
+      <section class="card">
+        <h2 style="font-size: 17px">Most used</h2>
+        <ul class="bars">
+          <li><span>github</span><span class="bar" style="width: 100%"></span><span class="num">412</span></li>
+          <li><span>pr-reviewer</span><span class="bar" style="width: 52%"></span><span class="num">214</span></li>
+          <li><span>db-migrator</span><span class="bar" style="width: 29%"></span><span class="num">121</span></li>
+          <li><span>react-conventions</span><span class="bar" style="width: 21%"></span><span class="num">88</span></li>
+          <li><span>pre-commit-lint</span><span class="bar" style="width: 15%"></span><span class="num">63</span></li>
+        </ul>
+      </section>
+      <section class="card">
+        <h2 style="font-size: 17px">Never used this week</h2>
+        <ul class="idle">
+          <li><span>release-notes <span class="hint">Prompt</span></span><span class="hint">Last used 23 days ago</span></li>
+          <li><span>sentry <span class="hint">MCP server</span></span><span class="hint">Never</span></li>
+          <li><span>api-docs-writer <span class="hint">Skill</span></span><span class="hint">Never</span></li>
+          <li><span>k8s-debug <span class="hint">Subagent</span></span><span class="hint">Last used 41 days ago</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 8px">These still add tokens to every session. <a href="#">Review them</a>.</p>
+      </section>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="08-telemetry.html">← Back</a><a href="index.html">Flow</a><a href="10-share.html">Next →</a></nav>
+</body>
+</html>

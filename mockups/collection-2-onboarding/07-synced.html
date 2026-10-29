@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.7 Synced and converted · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+  .s-native .dot { background: var(--ink); }
+  .s-conv .dot { background: var(--ok); }
+  .s-part .dot { background: #D08A00; }
+  .s-na { color: var(--muted); }
+  .s-na .dot { background: transparent; border: 1.5px solid var(--line-strong); }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <ol class="steps" aria-label="Onboarding progress">
+      <li class="done"><span class="n">✓</span>Account</li>
+      <li class="done"><span class="n">✓</span>Workspace</li>
+      <li class="done"><span class="n">✓</span>Connect CLI</li>
+      <li class="now"><span class="n">4</span>Ready</li>
+    </ol>
+  </header>
+  <main class="wrap stack" style="gap: 24px">
+    <div class="row" style="justify-content: space-between; gap: 24px; align-items: flex-end">
+      <div class="stack" style="gap: 8px; flex: 1 1 520px">
+        <span class="pill pill-ok" style="align-self: flex-start">Synced just now from raja-mbp</span>
+        <h1 style="font-size: 34px">21 resources, ready in every harness</h1>
+        <p class="lede">We found these on your machine and converted them. Anyone you invite to Acme AI can install them in one step.</p>
+      </div>
+      <a class="btn btn-primary" href="08-telemetry.html">See how you use them →</a>
+    </div>
+
+    <div class="legend">
+      <span class="s-native"><span class="dot"></span>Native: where you wrote it</span>
+      <span class="s-conv"><span class="dot"></span>Converted</span>
+      <span class="s-part"><span class="dot"></span>Partial: some features dropped</span>
+      <span class="s-na"><span class="dot"></span>Not supported in that harness</span>
+    </div>
+
+    <div class="table-box">
+      <table>
+        <thead><tr><th scope="col">Resource</th><th scope="col">Type</th><th scope="col">Claude Code</th><th scope="col">Codex</th><th scope="col">Cursor</th><th scope="col">Gemini CLI</th><th scope="col">OpenCode</th><th scope="col"><span class="sr-only" style="position:absolute;left:-9999px">Actions</span></th></tr></thead>
+        <tbody>
+          <tr><td><strong>pr-reviewer</strong></td><td>Skill</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+          <tr><td><strong>github</strong></td><td>MCP server</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+          <tr><td><strong>pre-commit-lint</strong></td><td>Hook</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-part"><span class="dot"></span>Partial</td><td class="s-na"><span class="dot"></span>Not supported</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+          <tr><td><strong>db-migrator</strong></td><td>Subagent</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-part"><span class="dot"></span>Partial</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+          <tr><td><strong>release-notes</strong></td><td>Prompt</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+          <tr><td><strong>react-conventions</strong></td><td>Rule</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-native"><span class="dot"></span>Native</td><td class="s-conv"><span class="dot"></span>Converted</td><td class="s-conv"><span class="dot"></span>Converted</td><td><a class="btn btn-ghost btn-sm" href="10-share.html">Share</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">Showing 6 of 21. <a href="#">See all resources</a>. Partial conversions list exactly what was dropped. Sample data.</p>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="06-authorize.html">← Back</a><a href="index.html">Flow</a><a href="08-telemetry.html">Next →</a></nav>
+</body>
+</html>

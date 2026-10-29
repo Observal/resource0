@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.8 Turn on insights · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .scrim { position: fixed; inset: 0; background: rgba(14, 17, 22, 0.45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .ghost-row { height: 44px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); }
+  .lists { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .lists ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page" aria-hidden="true">
+  <header class="topbar"><span class="logo"><span class="logo-mark">0</span>Resource0</span></header>
+  <div class="wrap stack" style="gap: 12px">
+    <div style="height: 40px; width: 50%; border-radius: 8px; background: var(--line)"></div>
+    <div class="ghost-row"></div><div class="ghost-row"></div><div class="ghost-row"></div><div class="ghost-row"></div><div class="ghost-row"></div>
+  </div>
+</div>
+<div class="scrim">
+  <section class="card stack" role="dialog" aria-modal="true" aria-labelledby="t" style="width: 100%; max-width: 560px; gap: 20px">
+    <span class="pill pill-accent" style="align-self: flex-start">One click</span>
+    <h1 id="t" style="font-size: 28px">See how you actually use your agent</h1>
+    <p class="lede">Turn on insights to see which skills and MCPs your agent uses, which ones it never touches, and where conversions break.</p>
+    <div class="lists">
+      <div><strong style="font-size: 14px">We collect</strong><ul><li>Which resources ran, and when</li><li>Tool calls and errors</li><li>Token counts per session</li></ul></div>
+      <div><strong style="font-size: 14px">We never collect</strong><ul><li>Your code or file contents</li><li>Prompt text (redacted on your machine)</li><li>Secrets or env vars</li></ul></div>
+    </div>
+    <p class="hint">Only you can see your personal insights. Turn it off anytime with <code>observal telemetry off</code>.</p>
+    <div class="row" style="gap: 12px">
+      <a class="btn btn-primary" style="flex: 1" href="09-insights.html">Turn on insights</a>
+      <a class="btn btn-ghost" href="10-share.html">Not now</a>
+    </div>
+  </section>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="07-synced.html">← Back</a><a href="index.html">Flow</a><a href="09-insights.html">Next →</a></nav>
+</body>
+</html>

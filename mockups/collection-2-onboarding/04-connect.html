@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.4 Hand it to your agent · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .tabs { display: flex; gap: 4px; padding: 4px; background: var(--ground); border-radius: 10px; align-self: flex-start; }
+  .tabs button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: transparent; font: inherit; font-size: 14px; color: var(--muted); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--surface); color: var(--ink); font-weight: 500; box-shadow: 0 1px 2px rgba(14,17,22,.08); }
+  .does { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; counter-reset: s; }
+  .does li { padding: 16px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; }
+  .does li::before { counter-increment: s; content: counter(s); display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-hover); font-size: 12px; font-weight: 600; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .does strong { display: block; }
+  .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(47,75,255,.5); animation: p 1.6s infinite; }
+  @keyframes p { to { box-shadow: 0 0 0 10px rgba(47,75,255,0); } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <ol class="steps" aria-label="Onboarding progress">
+      <li class="done"><span class="n">✓</span>Account</li>
+      <li class="done"><span class="n">✓</span>Workspace</li>
+      <li class="now"><span class="n">3</span>Connect CLI</li>
+      <li><span class="n">4</span>Ready</li>
+    </ol>
+  </header>
+  <main class="center">
+    <div class="card stack" style="width: 100%; max-width: 860px; gap: 24px">
+      <div class="stack" style="gap: 8px">
+        <h1 style="font-size: 30px">Hand this to your coding agent</h1>
+        <p class="lede">Paste it into Claude Code, Codex or whatever you use. Your agent does the rest.</p>
+      </div>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true">Give to my agent</button>
+        <button role="tab" aria-selected="false">Run it myself</button>
+      </div>
+      <div class="cmd">
+        <code>Install Resource0 and sync my agent resources: curl -fsSL https://resource0.dev/i/acme-ai/k7Pq2x | sh</code>
+        <button class="btn btn-sm" type="button">Copy</button>
+      </div>
+      <p class="hint">This command is tied to <strong style="color: var(--ink)">raja@acme.dev</strong> and stops working in 15 minutes. <a href="#">Read the script first</a>.</p>
+      <ol class="does">
+        <li><strong>Installs Observal CLI</strong><span class="hint">One binary. Open source.</span></li>
+        <li><strong>Connects to Acme AI</strong><span class="hint">The workspace you just made.</span></li>
+        <li><strong>Signs you in</strong><span class="hint">Asks this browser to approve it.</span></li>
+        <li><strong>Uploads &amp; converts</strong><span class="hint">Your skills, MCPs and hooks, ready for any harness.</span></li>
+      </ol>
+      <div class="row" style="padding: 14px 16px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-hover); gap: 12px">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>Waiting for your agent to run it… keep this tab open.</span>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="03-workspace.html">← Back</a><a href="index.html">Flow</a><a href="05-terminal.html">Next →</a></nav>
+</body>
+</html>

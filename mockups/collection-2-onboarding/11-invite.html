@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.11 Recipient opens the link · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .does { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+  .does li { display: flex; gap: 12px; align-items: baseline; }
+  .does .n { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ground); font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
+  .does .new .n { background: var(--accent); color: #fff; }
+  .harness { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><a class="btn btn-ghost btn-sm" href="01-email.html">Sign in</a></header>
+  <main class="center">
+    <div class="row" style="width: 100%; max-width: 1040px; gap: 48px; align-items: flex-start">
+      <div class="stack" style="flex: 1 1 380px; gap: 18px">
+        <p class="hint"><strong style="color: var(--ink)">Raja</strong> from Acme AI shared a skill with you</p>
+        <h1 style="font-size: 40px">pr-reviewer</h1>
+        <p class="lede">Reviews a pull request against Acme's conventions and leaves inline comments. Uses the github MCP server.</p>
+        <div class="harness">
+          <span class="pill pill-ok">Claude Code</span><span class="pill pill-ok">Codex</span><span class="pill pill-ok">Cursor</span><span class="pill pill-ok">Gemini CLI</span><span class="pill pill-ok">OpenCode</span>
+        </div>
+        <p class="hint">v3 · updated 2 days ago · used 214 times at Acme this week</p>
+      </div>
+      <div class="card stack" style="flex: 1 1 420px; gap: 18px">
+        <h2 style="font-size: 20px">Give this to your coding agent</h2>
+        <div class="cmd"><code>Install pr-reviewer from Resource0: curl -fsSL https://resource0.dev/s/7Hq2xK | sh</code><button class="btn btn-sm" type="button">Copy</button></div>
+        <ol class="does">
+          <li><span class="n">1</span>Installs Observal CLI</li>
+          <li><span class="n">2</span>Connects you to Acme AI</li>
+          <li><span class="n">3</span>Signs you in with your email</li>
+          <li><span class="n">4</span>Syncs your own resources so they work in any harness</li>
+          <li class="new"><span class="n">5</span><strong>Installs pr-reviewer for the harness you're using</strong></li>
+        </ol>
+        <p class="hint">Not using a coding agent? <a href="#">Run it in your terminal</a> instead.</p>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="10-share.html">← Back</a><a href="index.html">Flow</a><a href="12-recipient-terminal.html">Next →</a></nav>
+</body>
+</html>

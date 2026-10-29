@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.10 Share a resource · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .scrim { position: fixed; inset: 0; background: rgba(14, 17, 22, 0.45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .opt { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
+  .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+  .opt input { margin-top: 4px; accent-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="page" aria-hidden="true">
+  <header class="topbar"><span class="logo"><span class="logo-mark">0</span>Resource0</span></header>
+  <div class="wrap stack" style="gap: 8px">
+    <h1 style="font-size: 30px">pr-reviewer</h1>
+    <p class="hint">Skill · v3 · works in 5 harnesses</p>
+  </div>
+</div>
+<div class="scrim">
+  <section class="card stack" role="dialog" aria-modal="true" aria-labelledby="t" style="width: 100%; max-width: 600px; gap: 20px">
+    <div class="stack" style="gap: 6px">
+      <h1 id="t" style="font-size: 26px">Share pr-reviewer</h1>
+      <p class="hint">Whoever runs this gets the same setup you just did, and pr-reviewer is installed for whichever harness they use.</p>
+    </div>
+    <fieldset class="stack" style="border: 0; padding: 0; margin: 0; gap: 10px">
+      <legend style="font-size: 14px; font-weight: 500; margin-bottom: 10px">Who can install it</legend>
+      <label class="opt"><input type="radio" name="who" checked><span><strong style="display: block">Anyone with the command</strong><span class="hint">They join Acme AI as a member when they run it.</span></span></label>
+      <label class="opt"><input type="radio" name="who"><span><strong style="display: block">Only people at @acme.dev</strong><span class="hint">Others are asked to request access.</span></span></label>
+    </fieldset>
+    <div class="cmd">
+      <code>Install pr-reviewer from Resource0: curl -fsSL https://resource0.dev/s/7Hq2xK | sh</code>
+      <button class="btn btn-sm" type="button">Copy</button>
+    </div>
+    <div class="row" style="justify-content: space-between">
+      <span class="hint">Works for 7 days. <a href="#">Change</a></span>
+      <div class="row" style="gap: 8px">
+        <a class="btn btn-ghost btn-sm" href="#">Copy link instead</a>
+        <a class="btn btn-primary btn-sm" href="11-invite.html">Done</a>
+      </div>
+    </div>
+  </section>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="09-insights.html">← Back</a><a href="index.html">Flow</a><a href="11-invite.html">Next →</a></nav>
+</body>
+</html>
