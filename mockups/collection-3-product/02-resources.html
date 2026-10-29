@@ -6,12 +6,30 @@
 <title>3.2 Resources · Resource0</title>
 <link rel="stylesheet" href="../shared/r0.css">
 <link rel="stylesheet" href="product.css">
+<style>
+  .chip { cursor: pointer; font: inherit; font-size: 13px; }
+  .seg button { padding: 5px 12px; border-radius: 7px; font: inherit; font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: 0; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(14, 17, 22, 0.08); }
+  .rtable td.ck, .rtable th.ck { width: 44px; padding-right: 0; }
+  .rtable input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .rtable tbody tr { cursor: pointer; }
+  .rtable tbody tr:hover td { background: #FAFBFC; }
+  .rtable tbody tr.sel td { background: var(--accent-soft); }
+  .rtable a.name { color: var(--ink); font-weight: 600; text-decoration: none; }
+  .rtable a.name:hover { color: var(--accent); text-decoration: underline; }
+  .bulk { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 12px 10px 16px; border-radius: 12px; background: var(--ink); color: #fff; font-size: 14px; position: sticky; top: 12px; z-index: 3; }
+  .bulk .btn { background: #222A35; color: #fff; border-color: #30363D; }
+  .bulk .btn:hover { background: #2D3644; color: #fff; }
+  .bulk .grow { flex: 1; }
+  .empty { padding: 40px 16px; text-align: center; color: var(--muted); }
+  .toast { position: fixed; left: 50%; bottom: 72px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; z-index: 20; max-width: calc(100% - 32px); }
+</style>
 </head>
 <body>
 <div class="app">
   <aside class="side">
     <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
-    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Appian</strong><span class="hint">7 members</span></span></div>
     <nav class="side-nav" aria-label="Main">
       <a href="01-home.html">Home</a>
       <a href="02-resources.html" aria-current="page">Resources <span class="count">21</span></a>
@@ -23,7 +41,7 @@
       <a href="13-connectors.html">Connectors</a>
       <a href="14-settings.html">Sync &amp; privacy</a>
     </nav>
-    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@appian.com</div>
   </aside>
   <main class="main">
     <div class="wrap stack" style="gap: 20px">
@@ -32,18 +50,12 @@
           <h1>Resources</h1>
           <p class="hint">Everything synced from your machines, converted for every harness.</p>
         </div>
-        <div class="seg" role="group" aria-label="Scope"><a href="02-resources.html" aria-current="page">Mine · 21</a><a href="#">Shared in Acme AI · 8</a></div>
+        <div class="seg" role="group" aria-label="Scope"><button type="button" data-scope="mine" aria-pressed="true">Mine · <span id="n-mine">21</span></button><button type="button" data-scope="shared" aria-pressed="false">Shared in Appian · <span id="n-shared">8</span></button></div>
       </div>
 
       <div class="filters">
-        <input type="text" placeholder="Search resources" aria-label="Search resources">
-        <a class="chip" aria-pressed="true" href="#">All types</a>
-        <a class="chip" href="#">Skills 6</a>
-        <a class="chip" href="#">MCP servers 4</a>
-        <a class="chip" href="#">Hooks 2</a>
-        <a class="chip" href="#">Subagents 4</a>
-        <a class="chip" href="#">Prompts &amp; rules 5</a>
-        <a class="chip" href="#">⚠ Needs review 1</a>
+        <input type="text" id="q" placeholder="Search resources" aria-label="Search resources">
+        <div class="filters" id="chips" role="group" aria-label="Filter by type"></div>
       </div>
 
       <div class="legend">
@@ -54,25 +66,139 @@
         <span>Harness order: Claude Code · Codex · Cursor · Gemini CLI · OpenCode</span>
       </div>
 
-      <div class="table-box">
-        <table>
-          <thead><tr><th scope="col">Resource</th><th scope="col">Type</th><th scope="col">Version</th><th scope="col">Harnesses</th><th scope="col">Visibility</th><th scope="col" style="text-align: right">Runs · 7d</th><th scope="col">Updated</th></tr></thead>
-          <tbody>
-            <tr><td><a href="03-resource.html"><strong>pr-reviewer</strong></a></td><td>Skill</td><td class="mono">v4</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">118</td><td class="hint">Mon</td></tr>
-            <tr><td><strong>github</strong></td><td>MCP server</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">431</td><td class="hint">Oct 9</td></tr>
-            <tr><td><a href="04-conversion.html"><strong>db-migrator</strong></a> <span class="pill pill-warn">Review</span></td><td>Subagent</td><td class="mono">v2</td><td><span class="s-native"><span class="dot"></span></span><span class="s-part"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">37</td><td class="hint">Tue</td></tr>
-            <tr><td><strong>pre-commit-lint</strong></td><td>Hook</td><td class="mono">v3</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-part"><span class="dot"></span></span><span class="s-na"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">64</td><td class="hint">Oct 21</td></tr>
-            <tr><td><strong>release-notes</strong></td><td>Prompt</td><td class="mono">v2</td><td><span class="s-conv"><span class="dot"></span></span><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">6</td><td class="hint">Oct 24</td></tr>
-            <tr><td><strong>react-conventions</strong></td><td>Rule</td><td class="mono">v5</td><td><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">92</td><td class="hint">Oct 18</td></tr>
-            <tr><td><strong>api-docs-writer</strong></td><td>Skill</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">0</td><td class="hint">Oct 9</td></tr>
-            <tr><td><strong>k8s-debug</strong></td><td>Subagent</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">0</td><td class="hint">Sep 11</td></tr>
-          </tbody>
-        </table>
+      <div class="bulk" id="bulk" hidden>
+        <span class="grow"><strong id="n-sel">0</strong> selected</span>
+        <span id="bulk-actions" class="row" style="gap: 8px"></span>
+        <button class="btn btn-sm" type="button" id="clear">Clear</button>
       </div>
-      <p class="hint">Showing 8 of 21. Private resources are only on your machines and in your cloud copy. <a href="12-limit.html">Share api-docs-writer</a> to see what happens at the sharing limit.</p>
+
+      <div class="table-box">
+        <table class="rtable">
+          <thead><tr><th scope="col" class="ck"><input type="checkbox" id="all" aria-label="Select all shown"></th><th scope="col">Resource</th><th scope="col">Type</th><th scope="col">Version</th><th scope="col">Harnesses</th><th scope="col" id="col-vis">Visibility</th><th scope="col" style="text-align: right">Runs · 7d</th><th scope="col">Updated</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div class="empty" id="empty" hidden>No resources match. <a href="#" id="reset">Clear filters</a></div>
+      </div>
+      <p class="hint" id="foot"></p>
     </div>
   </main>
 </div>
+<div class="toast" id="toast" role="status" hidden></div>
 <nav class="proto-nav" aria-label="Prototype"><a href="01-home.html">← Back</a><a href="index.html">Collection</a><a href="03-resource.html">Next →</a></nav>
+<script src="resources.js"></script>
+<script>
+  const { resources, GROUP, href, esc, dots } = R0;
+  const LIMIT = 8;
+  const state = { scope: "mine", type: "All types", q: "", sel: new Set() };
+  const $ = id => document.getElementById(id);
+
+  const inScope = () => resources.filter(r => state.scope === "mine" ? !r.teammate : r.shared);
+  const shown = () => inScope().filter(r =>
+    (state.type === "All types" || (state.type === "Needs review" ? r.review : GROUP[r.type] === state.type)) &&
+    (!state.q || r.name.includes(state.q.toLowerCase()) || r.type.toLowerCase().includes(state.q.toLowerCase())));
+  const sharedCount = () => resources.filter(r => r.shared).length;
+
+  function chips() {
+    const list = inScope();
+    const groups = ["Skills", "MCP servers", "Hooks", "Subagents", "Prompts & rules"];
+    const items = [["All types", list.length], ...groups.map(g => [g, list.filter(r => GROUP[r.type] === g).length]).filter(([, n]) => n)];
+    const review = list.filter(r => r.review).length;
+    if (review) items.push(["Needs review", review]);
+    $("chips").innerHTML = items.map(([g, n]) =>
+      `<button type="button" class="chip" aria-pressed="${state.type === g}" data-type="${esc(g)}">${g === "Needs review" ? "⚠ " : ""}${esc(g)}${g === "All types" ? "" : " " + n}</button>`).join("");
+  }
+
+  function render() {
+    const rows = shown();
+    $("n-mine").textContent = resources.filter(r => !r.teammate).length;
+    $("n-shared").textContent = sharedCount();
+    $("col-vis").textContent = state.scope === "mine" ? "Visibility" : "Shared by";
+    $("rows").innerHTML = rows.map(r => {
+      const vis = state.scope === "mine"
+        ? (r.shared ? '<span class="pill pill-accent">Shared</span>' : '<span class="pill">Private</span>')
+        : (r.teammate ? esc(r.owner) : "You");
+      const sel = state.sel.has(r.name);
+      return `<tr data-name="${esc(r.name)}" class="${sel ? "sel" : ""}">
+        <td class="ck"><input type="checkbox" ${sel ? "checked" : ""} aria-label="Select ${esc(r.name)}"></td>
+        <td><a class="name" href="${href(r)}">${esc(r.name)}</a>${r.review ? ' <span class="pill pill-warn">Review</span>' : ""}</td>
+        <td>${esc(r.type)}</td><td class="mono">v${r.v}</td><td>${dots(r)}</td><td>${vis}</td>
+        <td class="r">${r.runs}</td><td class="hint">${esc(r.updated)}</td></tr>`;
+    }).join("");
+    $("empty").hidden = rows.length > 0;
+    const allSel = rows.length > 0 && rows.every(r => state.sel.has(r.name));
+    $("all").checked = allSel;
+    $("all").indeterminate = !allSel && rows.some(r => state.sel.has(r.name));
+    $("foot").textContent = state.scope === "mine"
+      ? `Showing ${rows.length} of ${inScope().length}. Private resources live on your machines and in your cloud copy. Click a row to open it, or tick rows to act on several at once.`
+      : `Showing ${rows.length} of ${inScope().length} shared in Appian. Everyone in the workspace can install these.`;
+    bulk();
+  }
+
+  function bulk() {
+    const n = state.sel.size;
+    $("bulk").hidden = n === 0;
+    $("n-sel").textContent = n;
+    $("bulk-actions").innerHTML = state.scope === "mine"
+      ? '<button class="btn btn-sm" type="button" data-act="share">Share</button><button class="btn btn-sm" type="button" data-act="private">Make private</button><button class="btn btn-sm" type="button" data-act="remove">Remove from my machines</button>'
+      : '<button class="btn btn-sm" type="button" data-act="install">Install on my machines</button>';
+  }
+
+  let toastTimer;
+  function toast(msg) {
+    $("toast").textContent = msg; $("toast").hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { $("toast").hidden = true; }, 3200);
+  }
+
+  function act(kind) {
+    const picked = resources.filter(r => state.sel.has(r.name));
+    const plural = n => n === 1 ? "1 resource" : n + " resources";
+    if (kind === "share") {
+      const fresh = picked.filter(r => !r.shared);
+      if (!fresh.length) return toast("Those are already shared.");
+      if (sharedCount() + fresh.length > LIMIT) { location.href = "12-limit.html"; return; }
+      fresh.forEach(r => { r.shared = true; });
+      toast(`Shared ${plural(fresh.length)} with Appian. Teammates get them at their next session.`);
+    } else if (kind === "private") {
+      const own = picked.filter(r => r.shared && !r.teammate);
+      own.forEach(r => { r.shared = false; });
+      toast(own.length ? `Made ${plural(own.length)} private. Teammates who installed them keep their copy.` : "Those are already private.");
+    } else if (kind === "remove") {
+      toast(`Removed ${plural(picked.length)} from raja-mbp and raja-desktop. They stay in the cloud.`);
+    } else if (kind === "install") {
+      toast(`Installing ${plural(picked.length)} at your next session, for each harness you use.`);
+    }
+    state.sel.clear(); chips(); render();
+  }
+
+  document.querySelector(".seg").addEventListener("click", e => {
+    const b = e.target.closest("button[data-scope]"); if (!b) return;
+    state.scope = b.dataset.scope; state.type = "All types"; state.sel.clear();
+    document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    chips(); render();
+  });
+  $("chips").addEventListener("click", e => {
+    const b = e.target.closest("button[data-type]"); if (!b) return;
+    state.type = b.dataset.type; chips(); render();
+  });
+  $("q").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
+  $("rows").addEventListener("click", e => {
+    const tr = e.target.closest("tr[data-name]"); if (!tr) return;
+    if (e.target.closest("a")) return;
+    const name = tr.dataset.name;
+    if (e.target.closest("td.ck")) {
+      state.sel.has(name) ? state.sel.delete(name) : state.sel.add(name);
+      render(); return;
+    }
+    location.href = href(R0.find(name));
+  });
+  $("all").addEventListener("change", e => {
+    shown().forEach(r => e.target.checked ? state.sel.add(r.name) : state.sel.delete(r.name)); render();
+  });
+  $("clear").addEventListener("click", () => { state.sel.clear(); render(); });
+  $("bulk-actions").addEventListener("click", e => { const b = e.target.closest("button[data-act]"); if (b) act(b.dataset.act); });
+  $("reset").addEventListener("click", e => { e.preventDefault(); state.type = "All types"; state.q = ""; $("q").value = ""; chips(); render(); });
+
+  chips(); render();
+</script>
 </body>
 </html>
