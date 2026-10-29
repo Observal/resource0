@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.4 Review a conversion · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+<style>
+  .hlist { display: flex; flex-direction: column; gap: 4px; }
+  .hlist a { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 14px; border: 1px solid transparent; }
+  .hlist a:hover { background: var(--ground); color: var(--ink); }
+  .hlist a[aria-current="page"] { border-color: var(--line-strong); background: var(--surface); font-weight: 600; }
+  .layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: start; }
+  .panes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .changes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+  .changes li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
+  .ic-ok { color: var(--ok); font-weight: 600; }
+  .ic-warn { color: var(--warn); font-weight: 600; }
+  @media (max-width: 760px) { .layout { grid-template-columns: minmax(0, 1fr); } .hlist { flex-direction: row; overflow-x: auto; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html" aria-current="page">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div>
+          <p class="crumbs"><a href="02-resources.html">Resources</a> / db-migrator</p>
+          <div class="row" style="gap: 10px"><h1>db-migrator</h1><span class="pill">Subagent</span><span class="pill mono">v2</span><span class="pill pill-accent">Shared</span></div>
+        </div>
+      </div>
+
+      <nav class="tabs" aria-label="Resource"><a href="#">Overview</a><a href="04-conversion.html" aria-current="page">Harnesses</a><a href="#">Versions · 2</a><a href="#">Insights</a></nav>
+
+      <div class="layout">
+        <nav class="hlist" aria-label="Harness">
+          <a href="#" class="s-native">Claude Code <span><span class="dot"></span></span></a>
+          <a href="04-conversion.html" aria-current="page" class="s-part">Codex <span><span class="dot"></span></span></a>
+          <a href="#" class="s-conv">Cursor <span><span class="dot"></span></span></a>
+          <a href="#" class="s-conv">Gemini CLI <span><span class="dot"></span></span></a>
+          <a href="#" class="s-conv">OpenCode <span><span class="dot"></span></span></a>
+        </nav>
+
+        <div class="stack" style="gap: 16px">
+          <div class="warnbox stack" style="gap: 4px">
+            <strong>Partial conversion for Codex</strong>
+            <span>Codex has no setting for two of the Claude Code options. We worked around one and dropped the other. Teammates on Codex get this version until you decide.</span>
+          </div>
+
+          <div class="panes">
+            <div class="pane">
+              <div class="pane-h"><strong>Claude Code</strong><span class="hint mono">.claude/agents/db-migrator.md</span></div>
+<pre><span class="ctx">---</span><span class="ctx">name: db-migrator</span><span class="ctx">description: Writes and checks</span><span class="ctx">  Postgres migrations.</span><span class="del">model: opus</span><span class="del">permissionMode: plan</span><span class="ctx">tools: Read, Grep, Bash</span><span class="ctx">---</span><span class="ctx">You write reversible migrations…</span></pre>
+            </div>
+            <div class="pane">
+              <div class="pane-h"><strong>Codex</strong><span class="hint mono">~/.codex/agents/db-migrator.toml</span></div>
+<pre><span class="ctx">name = "db-migrator"</span><span class="ctx">description = "Writes and checks</span><span class="ctx">  Postgres migrations."</span><span class="ctx">tools = ["read", "grep", "shell"]</span><span class="add">sandbox = "read-only"</span><span class="ctx">instructions = """</span><span class="add">Propose the plan and wait for an OK</span><span class="add">before writing any file.</span><span class="ctx">You write reversible migrations…</span><span class="ctx">"""</span></pre>
+            </div>
+          </div>
+
+          <section class="card tight stack" style="gap: 12px">
+            <h2>What changed</h2>
+            <ul class="changes">
+              <li><span class="ic-ok" aria-label="Converted">✓</span><span>Instructions, name and description copied as is.</span></li>
+              <li><span class="ic-ok" aria-label="Converted">✓</span><span>Tools mapped: Bash → shell.</span></li>
+              <li><span class="ic-warn" aria-label="Changed">!</span><span><strong>permissionMode: plan</strong> has no Codex equivalent. We set a read-only sandbox and added a line telling it to propose a plan first.</span></li>
+              <li><span class="ic-warn" aria-label="Dropped">!</span><span><strong>model: opus</strong> was dropped. Codex uses the model of the session.</span></li>
+            </ul>
+            <p class="hint">Cloud test: we ran 5 sample tasks in Claude Code and in Codex. 4 matched. In the fifth, Codex wrote the migration file before showing a plan. <a href="#">See the runs</a></p>
+          </section>
+
+          <div class="row" style="justify-content: flex-end; gap: 8px">
+            <a class="btn btn-ghost" href="#">Don't offer in Codex</a>
+            <a class="btn btn-ghost" href="#">Edit the Codex version</a>
+            <a class="btn btn-primary" href="#">Accept conversion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="03-resource.html">← Back</a><a href="index.html">Collection</a><a href="05-versions.html">Next →</a></nav>
+</body>
+</html>

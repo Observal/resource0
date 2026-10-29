@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.6 Workspaces &amp; limits · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>Workspaces &amp; limits</h1>
+        <p class="owner">Limits are never published: 8 shared resources, 10 users. We grant overrides by hand.</p>
+      </div>
+      <div class="filters"><input type="text" placeholder="Search workspace or email" aria-label="Search" style="height: 32px; width: 240px; font-size: 13px"></div>
+    </div>
+
+    <section class="g g4">
+      <div class="tile"><span class="k">At the user cap</span><span class="v">7</span><span class="hint">10 of 10 seats used</span></div>
+      <div class="tile"><span class="k">At the resource cap</span><span class="v">12</span><span class="hint">8 of 8 shared resources</span></div>
+      <div class="tile"><span class="k">Asked for more</span><span class="v">11</span><span class="hint">4 waiting on us</span></div>
+      <div class="tile"><span class="k">Overrides granted</span><span class="v">7</span><span class="hint">5 users · 2 resources</span></div>
+    </section>
+
+    <div class="callout callout-acc">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <div class="body"><strong>Every request below is a pricing signal.</strong><span>More users and more storage is the first thing we plan to charge for. Log what each team says they'd pay before approving. 6 of 11 have already named a number.</span></div>
+    </div>
+
+    <section class="stack" style="gap: 10px">
+      <h2 style="font-size: 18px">Waiting on us</h2>
+      <div class="table-box">
+        <table>
+          <thead><tr><th>Workspace</th><th>Asked for</th><th>Why, in their words</th><th>Would pay?</th><th>Asked</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lumen Health</strong><br><span class="hint">3 activated · 10 / 10 users</span></td><td>25 users</td><td style="white-space: normal; min-width: 240px">"Whole platform team wants the same Claude Code setup."</td><td><span class="pill pill-ok">$15 / seat</span></td><td>Today</td><td><div class="row" style="gap: 6px; flex-wrap: nowrap"><a class="btn btn-primary btn-sm" href="#">Approve</a><a class="btn btn-ghost btn-sm" href="#">Reply</a></div></td></tr>
+            <tr><td><strong>Northwind Labs</strong><br><span class="hint">4 activated · 7 / 10 users</span></td><td>20 resources</td><td style="white-space: normal; min-width: 240px">"We have a skill per service."</td><td><span class="pill">Didn't say</span></td><td>Yesterday</td><td><div class="row" style="gap: 6px; flex-wrap: nowrap"><a class="btn btn-primary btn-sm" href="#">Approve</a><a class="btn btn-ghost btn-sm" href="#">Reply</a></div></td></tr>
+            <tr><td><strong>Quarry AI</strong><br><span class="hint">6 activated · 10 / 10 users</span></td><td>15 users</td><td style="white-space: normal; min-width: 240px">"Adding the data team next sprint."</td><td><span class="pill pill-ok">Yes, needs SSO</span></td><td>2 days ago</td><td><div class="row" style="gap: 6px; flex-wrap: nowrap"><a class="btn btn-primary btn-sm" href="#">Approve</a><a class="btn btn-ghost btn-sm" href="#">Reply</a></div></td></tr>
+            <tr><td><strong>Halcyon Games</strong><br><span class="hint">1 activated · 2 / 10 users</span></td><td>40 resources</td><td style="white-space: normal; min-width: 240px">"Migrating our prompt library."</td><td><span class="pill">Didn't say</span></td><td>4 days ago</td><td><div class="row" style="gap: 6px; flex-wrap: nowrap"><a class="btn btn-primary btn-sm" href="#">Approve</a><a class="btn btn-ghost btn-sm" href="#">Reply</a></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stack" style="gap: 10px">
+      <div class="head">
+        <h2 style="font-size: 18px">All workspaces</h2>
+        <div class="seg"><button aria-pressed="true">All 482</button><button aria-pressed="false">Near a limit</button><button aria-pressed="false">Activated</button><button aria-pressed="false">Has override</button></div>
+      </div>
+      <div class="table-box">
+        <table>
+          <thead><tr><th>Workspace</th><th>Users</th><th>Shared resources</th><th class="num">Activated</th><th>Insights on</th><th>Source</th><th>Created</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><strong>Quarry AI</strong> <span class="pill pill-ok">Activated</span></td><td><span class="mini"><span class="meter full"><i style="width: 100%"></i></span>10 / 10</span></td><td><span class="mini"><span class="meter"><i style="width: 75%"></i></span>6 / 8</span></td><td class="num">6</td><td>9 of 10</td><td>Share link</td><td>Nov 4</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>Lumen Health</strong></td><td><span class="mini"><span class="meter full"><i style="width: 100%"></i></span>10 / 10</span></td><td><span class="mini"><span class="meter"><i style="width: 50%"></i></span>4 / 8</span></td><td class="num">3</td><td>6 of 10</td><td>@devtools_daily</td><td>Nov 21</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>Tidewater</strong> <span class="pill pill-ok">Activated</span> <span class="pill pill-accent">Override</span></td><td><span class="mini"><span class="meter"><i style="width: 70%"></i></span>14 / 20</span></td><td><span class="mini"><span class="meter full"><i style="width: 100%"></i></span>8 / 8</span></td><td class="num">8</td><td>12 of 14</td><td>Organic</td><td>Nov 2</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>Northwind Labs</strong></td><td><span class="mini"><span class="meter"><i style="width: 70%"></i></span>7 / 10</span></td><td><span class="mini"><span class="meter full"><i style="width: 100%"></i></span>8 / 8</span></td><td class="num">4</td><td>4 of 7</td><td>HN</td><td>Nov 12</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>Fathom Robotics</strong></td><td><span class="mini"><span class="meter"><i style="width: 40%"></i></span>4 / 10</span></td><td><span class="mini"><span class="meter"><i style="width: 37.5%"></i></span>3 / 8</span></td><td class="num">4</td><td>4 of 4</td><td>Share link</td><td>Nov 29</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>Halcyon Games</strong></td><td><span class="mini"><span class="meter"><i style="width: 20%"></i></span>2 / 10</span></td><td><span class="mini"><span class="meter full"><i style="width: 100%"></i></span>8 / 8</span></td><td class="num">1</td><td>1 of 2</td><td>Paid ad</td><td>Dec 9</td><td><a class="hint" href="#">Override</a></td></tr>
+            <tr><td><strong>priya's workspace</strong> <span class="hint">skipped naming</span></td><td><span class="mini"><span class="meter"><i style="width: 10%"></i></span>1 / 10</span></td><td><span class="mini"><span class="meter"><i style="width: 25%"></i></span>2 / 8</span></td><td class="num">1</td><td>1 of 1</td><td>Organic</td><td>Dec 13</td><td><a class="hint" href="#">Override</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+</body>
+</html>

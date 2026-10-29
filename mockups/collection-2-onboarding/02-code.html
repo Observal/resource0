@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.2 One-time code · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .otp { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .otp input { height: 60px; text-align: center; font-family: var(--mono); font-size: 24px; padding: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <ol class="steps" aria-label="Onboarding progress">
+      <li class="now"><span class="n">1</span>Account</li>
+      <li><span class="n">2</span>Workspace</li>
+      <li><span class="n">3</span>Connect CLI</li>
+      <li><span class="n">4</span>Ready</li>
+    </ol>
+  </header>
+  <main class="center">
+    <form class="card stack" style="width: 100%; max-width: 440px; gap: 20px" action="03-workspace.html">
+      <h1 style="font-size: 26px">Check your email</h1>
+      <p class="hint">We sent a 6-digit code to <strong style="color: var(--ink)">raja@acme.dev</strong>. <a href="01-email.html">Wrong email?</a></p>
+      <fieldset style="border: 0; padding: 0; margin: 0">
+        <legend class="hint" style="margin-bottom: 8px">Enter code</legend>
+        <div class="otp">
+          <input type="text" inputmode="numeric" maxlength="1" value="4" aria-label="Digit 1">
+          <input type="text" inputmode="numeric" maxlength="1" value="8" aria-label="Digit 2">
+          <input type="text" inputmode="numeric" maxlength="1" value="2" aria-label="Digit 3">
+          <input type="text" inputmode="numeric" maxlength="1" value="1" aria-label="Digit 4">
+          <input type="text" inputmode="numeric" maxlength="1" value="" aria-label="Digit 5" autofocus>
+          <input type="text" inputmode="numeric" maxlength="1" value="" aria-label="Digit 6">
+        </div>
+      </fieldset>
+      <button class="btn btn-primary btn-block" type="submit">Verify</button>
+      <p class="hint">Didn't get it? Resend in 0:42. Pasting the whole code works too.</p>
+    </form>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="01-email.html">← Back</a><a href="index.html">Flow</a><a href="03-workspace.html">Next →</a></nav>
+</body>
+</html>

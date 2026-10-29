@@ -5,11 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Onboarding · Resource0</title>
 <link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .stage { margin-top: 40px; }
+  .stage h2 { font-size: 22px; }
+  .stage > p { margin-top: 4px; }
+  .screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+  .screen { display: flex; flex-direction: column; gap: 6px; padding: 20px; text-decoration: none; color: var(--ink); }
+  .screen:hover { border-color: var(--accent); color: var(--ink); }
+  .screen .num { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .screen h3 { font-size: 16px; }
+  .note { margin-top: 40px; padding: 20px; border-radius: 12px; background: var(--warn-soft); color: #5C3700; }
+</style>
 </head>
 <body>
 <div class="page">
-  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a></header>
-  <main class="wrap"><h1>Onboarding</h1><p class="lede" style="margin-top: 8px">Coming soon.</p></main>
+  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a><span class="pill">Collection 02</span></header>
+  <main class="wrap">
+    <p class="eyebrow">Collection 02</p>
+    <h1 style="font-size: 40px; margin-top: 6px">Onboarding</h1>
+    <p class="lede" style="margin-top: 8px; max-width: 680px">Everything after someone clicks "Supercharge your agentic resources". Click any screen, then use the arrows in the corner to walk through the flow.</p>
+
+    <section class="stage">
+      <h2>Stage 3 · Sign up</h2>
+      <p class="hint">Email → one-time code → workspace name. No passwords, no SSO.</p>
+      <div class="screens">
+        <a class="card screen" href="01-email.html"><span class="num">2.1</span><h3>Enter email</h3><span class="hint">event: email_submitted</span></a>
+        <a class="card screen" href="02-code.html"><span class="num">2.2</span><h3>One-time code</h3><span class="hint">event: code_verified</span></a>
+        <a class="card screen" href="03-workspace.html"><span class="num">2.3</span><h3>Name your workspace</h3><span class="hint">event: workspace_created</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Stage 4 · Connect the CLI (Value 1)</h2>
+      <p class="hint">One command for their coding agent: install, connect, sign in, upload and convert.</p>
+      <div class="screens">
+        <a class="card screen" href="04-connect.html"><span class="num">2.4</span><h3>Hand it to your agent</h3><span class="hint">event: command_copied</span></a>
+        <a class="card screen" href="05-terminal.html"><span class="num">2.5</span><h3>What the agent runs</h3><span class="hint">event: cli_connected</span></a>
+        <a class="card screen" href="06-authorize.html"><span class="num">2.6</span><h3>Approve this device</h3><span class="hint">event: device_approved</span></a>
+        <a class="card screen" href="07-synced.html"><span class="num">2.7</span><h3>Synced &amp; converted</h3><span class="hint">event: components_uploaded</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Stage 5 · Insights (Value 2)</h2>
+      <p class="hint">One click to turn on telemetry, then a dashboard of how they use their own harness.</p>
+      <div class="screens">
+        <a class="card screen" href="08-telemetry.html"><span class="num">2.8</span><h3>Turn on insights</h3><span class="hint">event: telemetry_enabled</span></a>
+        <a class="card screen" href="09-insights.html"><span class="num">2.9</span><h3>Your first insights</h3><span class="hint">event: insights_viewed</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Share loop (Value 3)</h2>
+      <p class="hint">A share command runs the same steps, then also downloads the shared resource.</p>
+      <div class="screens">
+        <a class="card screen" href="10-share.html"><span class="num">2.10</span><h3>Share a resource</h3><span class="hint">event: share_created</span></a>
+        <a class="card screen" href="11-invite.html"><span class="num">2.11</span><h3>Recipient opens the link</h3><span class="hint">event: share_opened</span></a>
+        <a class="card screen" href="12-recipient-terminal.html"><span class="num">2.12</span><h3>Recipient's agent runs it</h3><span class="hint">event: share_installed</span></a>
+      </div>
+    </section>
+
+    <div class="note stack" style="gap: 8px">
+      <strong>Open questions</strong>
+      <span>Anonymous workspace: screen 2.3 has a "Skip" option that creates a personal workspace you can rename later. Slack makes you name it up front. Track how many people pick it before deciding.</span>
+      <span>Limits (8 shared resources, 10 users) are never shown in this flow. Only someone who hits one sees a "Request more" message.</span>
+    </div>
+  </main>
 </div>
 </body>
 </html>
