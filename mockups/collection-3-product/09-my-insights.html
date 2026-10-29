@@ -7,18 +7,52 @@
 <link rel="stylesheet" href="../shared/r0.css">
 <link rel="stylesheet" href="product.css">
 <style>
-  .cols { display: flex; align-items: flex-end; gap: 4px; height: 120px; margin-top: 16px; }
-  .cols span { flex: 1; background: var(--accent); border-radius: 4px 4px 0 0; min-width: 4px; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .jump { display: flex; gap: 4px; flex-wrap: wrap; position: sticky; top: 0; z-index: 4; background: var(--ground); padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .jump a { padding: 5px 10px; border-radius: 7px; font-size: 13px; color: var(--muted); text-decoration: none; }
+  .jump a:hover { background: var(--line); color: var(--ink); }
+  section[id] { scroll-margin-top: 64px; }
+  .sec-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .sec-h h2 { font-size: 20px; }
+  .card .sec-h h2 { font-size: 17px; }
+  .kpis.eight { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 1100px) { .kpis.eight { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .cols { display: flex; align-items: flex-end; gap: 4px; height: 140px; margin-top: 16px; }
+  .cols span { flex: 1; background: var(--accent); border-radius: 4px 4px 0 0; min-width: 3px; }
   .cols span.we { background: var(--line-strong); }
   .axis { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 6px; }
+  .heat { display: grid; grid-template-columns: 32px repeat(24, minmax(0, 1fr)); gap: 3px; margin-top: 16px; font-size: 11px; color: var(--muted); }
+  .heat i { aspect-ratio: 1; border-radius: 3px; background: var(--accent); max-width: 100%; }
+  .heat .lab { display: flex; align-items: center; }
+  .heat .hr { text-align: left; }
+  .scale { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .scale i { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.warn { color: #B42318; }
+  .spark { display: block; }
+  .tag { font-size: 11px; font-weight: 500; padding: 1px 7px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); margin-left: 6px; }
+  .tag.idle { background: var(--ground); color: var(--muted); border: 1px solid var(--line); }
   .done { color: var(--ok); font-weight: 600; }
+  .mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 14px; }
+  .mini div { display: flex; flex-direction: column; gap: 2px; }
+  .mini strong { font-size: 22px; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .fail { list-style: none; margin: 12px 0 0; padding: 0; }
+  .fail li { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; align-items: start; }
+  .fail li:last-child { border-bottom: 0; }
+  .fail .n { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .sug { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .sug:last-child { border-bottom: 0; }
+  .sug > div { flex: 1 1 320px; display: flex; flex-direction: column; gap: 4px; }
+  #res tr { cursor: pointer; }
+  #res tr:hover td { background: #FAFBFC; }
 </style>
 </head>
 <body>
 <div class="app">
   <aside class="side">
     <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
-    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Appian</strong><span class="hint">7 members</span></span></div>
     <nav class="side-nav" aria-label="Main">
       <a href="01-home.html">Home</a>
       <a href="02-resources.html">Resources <span class="count">21</span></a>
@@ -30,57 +64,261 @@
       <a href="13-connectors.html">Connectors</a>
       <a href="14-settings.html">Sync &amp; privacy</a>
     </nav>
-    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@appian.com</div>
   </aside>
+
   <main class="main">
-    <div class="wrap stack" style="gap: 20px">
+    <div class="wrap stack" style="gap: 24px">
       <div class="ph">
         <div class="stack" style="gap: 4px">
           <h1>How you use your agent</h1>
-          <p class="hint">Just you · last 30 days · all harnesses · sample data</p>
+          <p class="hint">Just you · Sep 30 – Oct 29 · all harnesses on raja-mbp and raja-desktop · sample data</p>
         </div>
         <div class="row" style="gap: 8px">
           <div class="seg" role="group" aria-label="Who"><a href="09-my-insights.html" aria-current="page">Just me</a><a href="10-team-insights.html">Team</a></div>
-          <div class="seg" role="group" aria-label="Time range"><a href="#">7 days</a><a href="09-my-insights.html" aria-current="page">30 days</a></div>
+          <span class="pill">Last 30 days</span>
         </div>
       </div>
 
-      <div class="kpis">
-        <div class="card kpi"><span class="hint">Sessions</span><div class="v">188</div><span class="d"><span class="up">↑ 13%</span></span></div>
-        <div class="card kpi"><span class="hint">Resources used</span><div class="v">15 <span class="hint" style="font-size: 15px; font-weight: 400">of 21</span></div><span class="d">6 idle</span></div>
-        <div class="card kpi"><span class="hint">Tokens per session</span><div class="v">41k</div><span class="d"><span class="up">↓ 18%</span></span></div>
-        <div class="card kpi"><span class="hint">Failed tool calls</span><div class="v">1.9%</div><span class="d"><span class="up">↓ from 3.2%</span></span></div>
-      </div>
+      <nav class="jump" aria-label="Sections">
+        <a href="#overview">Overview</a><a href="#activity">Activity</a><a href="#harnesses">Harnesses &amp; models</a><a href="#resources">Resources</a><a href="#context">Context</a><a href="#tools">Tools</a><a href="#failures">Failures</a><a href="#sessions">Sessions</a><a href="#suggestions">Suggestions</a>
+      </nav>
 
-      <section class="card tight">
-        <h2>Sessions per day</h2>
-        <div class="cols" role="img" aria-label="Sessions per day over 30 days, between 2 and 11 a day, lower on weekends">
-          <span style="height: 55%" title="Sep 30: 6"></span><span style="height: 64%" title="Oct 1: 7"></span><span style="height: 45%" title="Oct 2: 5"></span><span style="height: 73%" title="Oct 3: 8"></span><span class="we" style="height: 18%" title="Oct 4: 2"></span><span class="we" style="height: 18%" title="Oct 5: 2"></span><span style="height: 55%" title="Oct 6: 6"></span><span style="height: 64%" title="Oct 7: 7"></span><span style="height: 73%" title="Oct 8: 8"></span><span style="height: 55%" title="Oct 9: 6"></span><span style="height: 64%" title="Oct 10: 7"></span><span class="we" style="height: 27%" title="Oct 11: 3"></span><span class="we" style="height: 18%" title="Oct 12: 2"></span><span style="height: 82%" title="Oct 13: 9"></span><span style="height: 73%" title="Oct 14: 8"></span><span style="height: 64%" title="Oct 15: 7"></span><span style="height: 73%" title="Oct 16: 8"></span><span style="height: 55%" title="Oct 17: 6"></span><span class="we" style="height: 27%" title="Oct 18: 3"></span><span class="we" style="height: 18%" title="Oct 19: 2"></span><span style="height: 82%" title="Oct 20: 9"></span><span style="height: 91%" title="Oct 21: 10"></span><span style="height: 73%" title="Oct 22: 8"></span><span style="height: 82%" title="Oct 23: 9"></span><span style="height: 64%" title="Oct 24: 7"></span><span class="we" style="height: 27%" title="Oct 25: 3"></span><span class="we" style="height: 18%" title="Oct 26: 2"></span><span style="height: 100%" title="Oct 27: 11"></span><span style="height: 91%" title="Oct 28: 10"></span><span style="height: 82%" title="Oct 29: 9"></span>
+      <section id="overview">
+        <div class="kpis eight">
+          <div class="card kpi"><span class="hint">Sessions</span><div class="v">188</div><span class="d"><span class="up">↑ 13%</span> vs prior 30 days</span></div>
+          <div class="card kpi"><span class="hint">Hours with an agent</span><div class="v">61h</div><span class="d">19 min per session</span></div>
+          <div class="card kpi"><span class="hint">Tokens</span><div class="v">7.7M</div><span class="d">41k per session · <span class="up">↓ 18%</span></span></div>
+          <div class="card kpi"><span class="hint">Estimated spend</span><div class="v">$412</div><span class="d">at list prices · <span class="up">↓ $71</span></span></div>
+          <div class="card kpi"><span class="hint">Tool calls</span><div class="v">4,912</div><span class="d">26 per session</span></div>
+          <div class="card kpi"><span class="hint">Failed tool calls</span><div class="v">1.9%</div><span class="d"><span class="up">↓ from 3.2%</span></span></div>
+          <div class="card kpi"><span class="hint">Resources used</span><div class="v">18 <span class="hint" style="font-size: 15px; font-weight: 400">of 21</span></div><span class="d">3 never ran</span></div>
+          <div class="card kpi"><span class="hint">Sessions ending in a commit</span><div class="v">58%</div><span class="d"><span class="up">↑ 6 pts</span></span></div>
         </div>
-        <div class="axis"><span>Sep 30</span><span>Oct 14</span><span>Today</span></div>
       </section>
 
-      <div class="grid-2">
-        <section class="card tight">
-          <h2>Where you work</h2>
+      <section id="activity" class="grid-2">
+        <div class="card tight">
+          <div class="sec-h"><h2>Sessions per day</h2><span class="hint">Weekends in grey</span></div>
+          <div class="cols" id="daily" role="img" aria-label="Sessions per day over 30 days, 2 to 11 a day, lower on weekends, rising in the last two weeks"></div>
+          <div class="axis"><span>Sep 30</span><span>Oct 14</span><span>Today</span></div>
+        </div>
+        <div class="card tight">
+          <div class="sec-h"><h2>When you work</h2><span class="hint">Busiest: Tue and Wed, 10:00–12:00</span></div>
+          <div class="heat" id="heat" role="img" aria-label="Sessions by weekday and hour. Most activity on weekdays between 9:00 and 18:00, peaking late morning."></div>
+          <div class="scale" aria-hidden="true">Fewer <i style="opacity: .08"></i><i style="opacity: .3"></i><i style="opacity: .55"></i><i style="opacity: .8"></i><i></i> More</div>
+        </div>
+      </section>
+
+      <section id="harnesses" class="stack" style="gap: 12px">
+        <div class="sec-h"><h2>Harnesses &amp; models</h2><span class="hint">Same resources, different results by harness</span></div>
+        <div class="table-box">
+          <table>
+            <thead><tr><th scope="col">Harness</th><th scope="col" class="num">Sessions</th><th scope="col" class="num">Avg length</th><th scope="col" class="num">Tokens / session</th><th scope="col" class="num">Failed tool calls</th><th scope="col">Most used resource</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Claude Code</strong></td><td class="num">134</td><td class="num">21 min</td><td class="num">44k</td><td class="num">1.6%</td><td>github</td></tr>
+              <tr><td><strong>Codex</strong></td><td class="num">41</td><td class="num">14 min</td><td class="num">36k</td><td class="num warn">3.1%</td><td>release-notes</td></tr>
+              <tr><td><strong>Cursor</strong></td><td class="num">13</td><td class="num">11 min</td><td class="num">22k</td><td class="num">1.2%</td><td>react-conventions</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid-2">
+          <div class="card tight">
+            <h2>Models</h2>
+            <ul class="bars">
+              <li title="claude-opus-5-5: 104 sessions"><span class="mono">opus-5-5</span><span class="bar" style="width: 100%"></span><span class="r">104</span></li>
+              <li title="claude-sonnet-5-5: 43 sessions"><span class="mono">sonnet-5-5</span><span class="bar" style="width: 41%"></span><span class="r">43</span></li>
+              <li title="Codex default model: 41 sessions"><span>Codex default</span><span class="bar" style="width: 39%"></span><span class="r">41</span></li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h2>Why Codex fails more</h2>
+            <p style="margin-top: 10px">Most Codex failures come from <strong>postgres.query</strong>. The converted config dropped the read-only role, so 9 queries hit tables you can't read.</p>
+            <a class="btn btn-ghost btn-sm" href="03-resource.html?r=postgres" style="margin-top: 12px">Open postgres</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" class="stack" style="gap: 12px">
+        <div class="sec-h"><h2>Every resource you have</h2><span class="hint">Sorted by runs · click a row to open it</span></div>
+        <div class="table-box">
+          <table>
+            <thead><tr><th scope="col">Resource</th><th scope="col">Type</th><th scope="col" class="num">Runs</th><th scope="col">Last 4 weeks</th><th scope="col" class="num">Finished</th><th scope="col" class="num">Tokens / run</th><th scope="col" class="num">Always loaded</th><th scope="col">Last used</th></tr></thead>
+            <tbody id="res"></tbody>
+          </table>
+        </div>
+        <p class="hint">"Finished" means the run ended without an error and without you stopping it. Rules and hooks have no finish rate. "Always loaded" is what the resource adds to every session before you type anything.</p>
+      </section>
+
+      <section id="context" class="card tight">
+        <div class="sec-h"><h2>What's loaded before you type</h2><span class="hint">14.6k tokens at the start of every session</span></div>
+        <ul class="bars" style="margin-top: 18px">
+          <li title="github MCP tool definitions: 6.2k tokens"><span>github · 29 tools</span><span class="bar" style="width: 100%"></span><span class="r">6.2k</span></li>
+          <li title="react-conventions and api-style rules: 2.0k tokens"><span>2 Cursor rules</span><span class="bar" style="width: 32%"></span><span class="r">2.0k</span></li>
+          <li title="6 skill descriptions: 1.5k tokens"><span>6 skills</span><span class="bar" style="width: 24%"></span><span class="r">1.5k</span></li>
+          <li title="postgres MCP: 1.4k tokens"><span>postgres · 8 tools</span><span class="bar" style="width: 23%"></span><span class="r">1.4k</span></li>
+          <li title="linear MCP: 1.1k tokens"><span>linear · 11 tools</span><span class="bar" style="width: 18%"></span><span class="r">1.1k</span></li>
+          <li title="sentry MCP: 0.9k tokens, never used"><span>sentry · never used</span><span class="bar muted" style="width: 15%"></span><span class="r">0.9k</span></li>
+          <li title="4 subagent descriptions: 0.9k tokens"><span>4 subagents</span><span class="bar" style="width: 15%"></span><span class="r">0.9k</span></li>
+          <li title="Prompts and commands: 0.6k tokens"><span>4 prompts</span><span class="bar" style="width: 10%"></span><span class="r">0.6k</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 14px">You use 6 of github's 29 tools. Loading only those would save about 4.9k tokens per session, roughly $38 a month at your volume. Grey bars never ran in 30 days.</p>
+      </section>
+
+      <section id="tools" class="stack" style="gap: 12px">
+        <div class="sec-h"><h2>Tool calls</h2><span class="hint">Top 8 of 41 tools you called</span></div>
+        <div class="table-box">
+          <table>
+            <thead><tr><th scope="col">Tool</th><th scope="col">From</th><th scope="col" class="num">Calls</th><th scope="col" class="num">Failed</th><th scope="col" class="num">Median time</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">Bash</td><td>built in</td><td class="num">1,388</td><td class="num">2.4%</td><td class="num">3.1s</td></tr>
+              <tr><td class="mono">Edit</td><td>built in</td><td class="num">1,102</td><td class="num">0.6%</td><td class="num">0.1s</td></tr>
+              <tr><td class="mono">get_pull_request_diff</td><td>github</td><td class="num">612</td><td class="num">0.3%</td><td class="num">0.8s</td></tr>
+              <tr><td class="mono">get_file_contents</td><td>github</td><td class="num">488</td><td class="num">1.2%</td><td class="num">0.6s</td></tr>
+              <tr><td class="mono">query</td><td>postgres</td><td class="num">301</td><td class="num warn">4.6%</td><td class="num">1.9s</td></tr>
+              <tr><td class="mono">create_review_comment</td><td>github</td><td class="num">214</td><td class="num">0.0%</td><td class="num">0.5s</td></tr>
+              <tr><td class="mono">get_issue</td><td>linear</td><td class="num">96</td><td class="num">1.0%</td><td class="num">0.4s</td></tr>
+              <tr><td class="mono">search_code</td><td>github</td><td class="num">88</td><td class="num warn">9.1%</td><td class="num">2.2s</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="failures" class="card tight">
+        <div class="sec-h"><h2>What went wrong</h2><span class="hint">93 failed tool calls, grouped by cause</span></div>
+        <ul class="fail">
+          <li><span class="n">17</span><span><strong>pre-commit-lint blocked a commit</strong><br><span class="hint">ruff E501, line too long. The hook is doing its job, but the agent retries 2.3 times on average before fixing it.</span></span><a class="btn btn-ghost btn-sm" href="03-resource.html?r=pre-commit-lint">Open</a></li>
+          <li><span class="n">14</span><span><strong>Bash timed out after 120s</strong><br><span class="hint">Always <code>npm test</code> in appian-web. The full suite takes about 4 minutes.</span></span><span class="hint">Built in</span></li>
+          <li><span class="n">9</span><span><strong>postgres.query: permission denied for schema billing</strong><br><span class="hint">All 9 in Codex. The converted config lost the read-only role.</span></span><a class="btn btn-ghost btn-sm" href="03-resource.html?r=postgres">Open</a></li>
+          <li><span class="n">8</span><span><strong>github.search_code: rate limited</strong><br><span class="hint">Bursts of 10+ searches inside one minute, mostly during PR reviews.</span></span><a class="btn btn-ghost btn-sm" href="03-resource.html?r=github">Open</a></li>
+          <li><span class="n">45</span><span><strong>Everything else</strong><br><span class="hint">31 different errors, none more than 4 times.</span></span><a class="btn btn-ghost btn-sm" href="#">See all</a></li>
+        </ul>
+      </section>
+
+      <section id="sessions" class="grid-2">
+        <div class="card tight">
+          <h2>How your sessions go</h2>
+          <div class="mini">
+            <div><span class="hint">Turns per session</span><strong>14</strong></div>
+            <div><span class="hint">You stopped the agent</span><strong>21%</strong><span class="hint">of sessions</span></div>
+            <div><span class="hint">Used a shared resource</span><strong>81%</strong><span class="hint">of sessions</span></div>
+            <div><span class="hint">Handed off to a subagent</span><strong>63</strong><span class="hint">times · db-migrator most</span></div>
+            <div><span class="hint">Longest session</span><strong>2h 41m</strong><span class="hint">Oct 21 · Claude Code</span></div>
+            <div><span class="hint">Context compacted</span><strong>12</strong><span class="hint">sessions ran out of room</span></div>
+          </div>
+        </div>
+        <div class="card tight">
+          <div class="sec-h"><h2>What you worked on</h2><span class="hint">Sorted on your machine</span></div>
           <ul class="bars">
-            <li title="Claude Code: 134 sessions"><span>Claude Code</span><span class="bar" style="width: 100%"></span><span class="r">134</span></li>
-            <li title="Codex: 41 sessions"><span>Codex</span><span class="bar" style="width: 31%"></span><span class="r">41</span></li>
-            <li title="Cursor: 13 sessions"><span>Cursor</span><span class="bar" style="width: 10%"></span><span class="r">13</span></li>
+            <li title="Code review: 49 sessions"><span>Code review</span><span class="bar" style="width: 100%"></span><span class="r">49</span></li>
+            <li title="Feature work: 45 sessions"><span>Feature work</span><span class="bar" style="width: 92%"></span><span class="r">45</span></li>
+            <li title="Bug fixing: 36 sessions"><span>Bug fixing</span><span class="bar" style="width: 73%"></span><span class="r">36</span></li>
+            <li title="Tests: 23 sessions"><span>Tests</span><span class="bar" style="width: 47%"></span><span class="r">23</span></li>
+            <li title="Migrations: 15 sessions"><span>Migrations</span><span class="bar" style="width: 31%"></span><span class="r">15</span></li>
+            <li title="Docs and release notes: 11 sessions"><span>Docs</span><span class="bar" style="width: 22%"></span><span class="r">11</span></li>
+            <li title="Other: 9 sessions"><span>Other</span><span class="bar muted" style="width: 18%"></span><span class="r">9</span></li>
           </ul>
-        </section>
-        <section class="card tight stack" style="gap: 8px">
-          <h2>Suggestions</h2>
-          <ul class="list">
-            <li><span><span class="done" aria-label="Applied">✓</span> pr-reviewer: work from the diff <span class="hint">−31% tokens</span></span><span class="hint">Applied Mon</span></li>
-            <li><span><span class="done" aria-label="Applied">✓</span> github MCP: drop 11 unused tools <span class="hint">−2.4k per session</span></span><span class="hint">Applied Oct 16</span></li>
-            <li><span>k8s-debug idle for 48 days</span><a class="btn btn-ghost btn-sm" href="01-home.html">Review</a></li>
-          </ul>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <section id="suggestions" class="card tight">
+        <div class="sec-h"><h2>Suggestions</h2><span class="hint">3 open · 2 applied · measured after each change</span></div>
+        <div class="sug">
+          <div><strong>Load only the 6 github tools you use</strong><span class="hint">Saves about 4.9k tokens per session (≈ $38 a month). We'll add a tool filter to your github config in every harness.</span></div>
+          <a class="btn btn-primary btn-sm" href="#">Apply</a>
+        </div>
+        <div class="sug">
+          <div><strong>Fix the postgres conversion for Codex</strong><span class="hint">Add the read-only role back. That removes 9 failures a month and brings Codex's failure rate to about 1.8%.</span></div>
+          <a class="btn btn-ghost btn-sm" href="03-resource.html?r=postgres">Review</a>
+        </div>
+        <div class="sug">
+          <div><strong>Remove k8s-debug, api-docs-writer and sentry from your machines</strong><span class="hint">None ran in 30 days. Together they add 1.5k tokens to every session. They stay in the cloud.</span></div>
+          <a class="btn btn-ghost btn-sm" href="02-resources.html">Choose</a>
+        </div>
+        <div class="sug">
+          <div><strong><span class="done" aria-label="Applied">✓</span> pr-reviewer: work from the diff</strong><span class="hint">Applied Mon as v4. Tokens per review went from 26.4k to 18.2k (−31%). Finish rate unchanged.</span></div>
+          <a class="btn btn-ghost btn-sm" href="05-versions.html">See v4</a>
+        </div>
+        <div class="sug">
+          <div><strong><span class="done" aria-label="Applied">✓</span> github: drop 11 tools nobody at Appian used</strong><span class="hint">Applied Oct 16. Saved 2.4k tokens per session for everyone with github installed.</span></div>
+        </div>
+      </section>
+
+      <p class="hint">Counts, timings and token totals only. Resource0 never uploads your prompts, your agent's replies or file contents. Work types are sorted on your machine and only the category is sent.</p>
     </div>
   </main>
 </div>
 <nav class="proto-nav" aria-label="Prototype"><a href="08-cli-update.html">← Back</a><a href="index.html">Collection</a><a href="10-team-insights.html">Next →</a></nav>
+<script>
+  // Sessions per day, Sep 30 to Oct 29. Weekends grey.
+  const daily = [6,7,5,8,2,2,6,7,8,6,7,3,2,9,8,7,8,6,3,2,9,10,8,9,7,3,2,11,10,9];
+  const start = new Date(2026, 8, 30);
+  const max = Math.max(...daily);
+  document.getElementById("daily").innerHTML = daily.map((n, i) => {
+    const d = new Date(start); d.setDate(d.getDate() + i);
+    const we = d.getDay() === 0 || d.getDay() === 6;
+    const label = d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+    return `<span class="${we ? "we" : ""}" style="height:${Math.max(4, n / max * 100)}%" title="${label}: ${n} sessions"></span>`;
+  }).join("");
+
+  // Sessions started per weekday and hour over 30 days.
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const shape = h => h < 8 ? 0 : h < 9 ? 0.4 : h < 10 ? 0.8 : h < 12 ? 1 : h < 13 ? 0.45 : h < 17 ? 0.8 : h < 19 ? 0.5 : h < 23 ? 0.2 : 0;
+  const dayW = [0.85, 1, 1, 0.85, 0.7, 0.15, 0.1];
+  let cells = "<span></span>" + Array.from({ length: 24 }, (_, h) => `<span class="hr">${h % 6 === 0 ? h : ""}</span>`).join("");
+  days.forEach((d, di) => {
+    cells += `<span class="lab">${d}</span>`;
+    for (let h = 0; h < 24; h++) {
+      const v = Math.round(shape(h) * dayW[di] * 6);
+      cells += `<i style="opacity:${v ? 0.08 + v / 6 * 0.92 : 0.04}" title="${d} ${h}:00 · ${v} sessions"></i>`;
+    }
+  });
+  document.getElementById("heat").innerHTML = cells;
+
+  // name, type, runs (30d), weekly runs, finished %, tokens per run, always-loaded tokens, last used
+  const res = [
+    ["github", "MCP server", 1611, [380, 402, 398, 431], 98.6, "0.9k", "6.2k", "Today"],
+    ["block-secrets", "Hook", 702, [170, 176, 168, 188], null, "0", "0", "Today"],
+    ["pr-reviewer", "Skill", 431, [102, 104, 107, 118], 94.0, "18.2k", "0.3k", "Today"],
+    ["commit-message", "Prompt", 371, [88, 90, 97, 96], 99.2, "1.1k", "0.1k", "Today"],
+    ["react-conventions", "Rule", 352, [84, 88, 88, 92], null, "0", "1.2k", "Today"],
+    ["postgres", "MCP server", 301, [70, 81, 77, 73], 95.4, "0.6k", "1.4k", "Yesterday"],
+    ["pre-commit-lint", "Hook", 248, [58, 61, 65, 64], null, "0", "0", "Today"],
+    ["api-style", "Rule", 198, [44, 52, 51, 51], null, "0", "0.8k", "Yesterday"],
+    ["test-writer", "Skill", 152, [33, 37, 41, 41], 91.4, "12.6k", "0.3k", "Today"],
+    ["db-migrator", "Subagent", 129, [25, 31, 36, 37], 88.4, "21.0k", "0.2k", "Tue"],
+    ["linear", "MCP server", 84, [20, 21, 21, 22], 99.0, "0.4k", "1.1k", "Mon"],
+    ["security-auditor", "Subagent", 38, [6, 9, 12, 11], 97.4, "15.8k", "0.2k", "Mon"],
+    ["refactor-planner", "Skill", 31, [7, 8, 7, 9], 96.8, "9.4k", "0.2k", "Oct 27"],
+    ["frontend-tester", "Subagent", 26, [5, 7, 7, 7], 76.9, "24.1k", "0.2k", "Oct 23"],
+    ["release-notes", "Prompt", 24, [6, 6, 6, 6], 100, "6.3k", "0.1k", "Oct 24"],
+    ["standup-summary", "Prompt", 19, [5, 4, 5, 5], 100, "2.2k", "0.1k", "Today"],
+    ["perf-profiler", "Skill", 14, [2, 4, 4, 4], 85.7, "17.3k", "0.3k", "Oct 22"],
+    ["incident-summary", "Skill", 6, [2, 2, 0, 2], 100, "8.0k", "0.2k", "Oct 20"],
+    ["api-docs-writer", "Skill", 0, [0, 0, 0, 0], null, "—", "0.3k", "Never"],
+    ["k8s-debug", "Subagent", 0, [0, 0, 0, 0], null, "—", "0.3k", "Sep 11"],
+    ["sentry", "MCP server", 0, [0, 0, 0, 0], null, "—", "0.9k", "Never"],
+  ];
+  const spark = w => {
+    const m = Math.max(...w, 1), on = w.some(Boolean), c = on ? "#2F4BFF" : "#C9CED6";
+    const pts = w.map((v, i) => [6 + i * 20, 20 - v / m * 14]);
+    const [lx, ly] = pts[pts.length - 1];
+    return `<svg class="spark" width="72" height="24" viewBox="0 0 72 24" aria-hidden="true"><polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${lx}" cy="${ly}" r="3" fill="${c}"/></svg>`;
+  };
+  const tbody = document.getElementById("res");
+  tbody.innerHTML = res.map(([name, type, runs, weeks, fin, tok, always, last]) => {
+    const idle = runs === 0, low = fin !== null && fin < 90;
+    return `<tr data-href="03-resource.html?r=${name}">
+      <td><a href="03-resource.html?r=${name}" style="color: inherit; font-weight: 600; text-decoration: none">${name}</a>${idle ? '<span class="tag idle">never ran</span>' : ""}${low ? '<span class="tag">low finish rate</span>' : ""}</td>
+      <td class="hint">${type}</td><td class="num">${runs.toLocaleString("en-US")}</td>
+      <td title="Weekly runs: ${weeks.join(", ")}">${spark(weeks)}</td>
+      <td class="num ${low ? "warn" : ""}">${fin === null ? '<span class="hint">—</span>' : (fin === 100 ? "100" : fin.toFixed(1)) + "%"}</td>
+      <td class="num">${tok}</td><td class="num">${always}</td><td class="hint">${last}</td></tr>`;
+  }).join("");
+  tbody.addEventListener("click", e => {
+    const tr = e.target.closest("tr[data-href]");
+    if (tr && !e.target.closest("a")) location.href = tr.dataset.href;
+  });
+</script>
 </body>
 </html>
