@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.2 Funnel · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>Funnel: find the leak</h1>
+        <p class="owner">Owned by <b>Raja &amp; Hema</b> · every event below is fired from a Collection 02 screen</p>
+      </div>
+      <div class="filters">
+        <select class="select" aria-label="Channel"><option>All channels</option><option>Organic / direct</option><option>Share links</option><option>Creator affiliates</option><option>Paid ads</option><option>HN / Reddit</option></select>
+        <select class="select" aria-label="OS"><option>All OS</option><option>macOS</option><option>Linux</option><option>Windows</option></select>
+        <div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button><button aria-pressed="false">Since launch</button></div>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div><h2>Stages 1 → 5, with every step in between</h2><p class="sub">Last 30 days · bars are a share of human visitors · grey lines show what fell off</p></div>
+        <div class="seg"><button aria-pressed="true">Stages + steps</button><button aria-pressed="false">Stages only</button></div>
+      </div>
+      <div class="funnel">
+        <div class="fstage" data-tip="<b>page_viewed</b><br>6,240 raw sessions<br>1,930 filtered as bots (31%)"><span class="lbl"><strong>1 · Landed</strong><span class="hint">page_viewed · humans only</span></span><span class="fbar"><i style="width: 100%"></i></span><span class="n"><b>4,310</b>100%</span></div>
+        <div class="fdrop"><span></span><span>−3,330 didn't click (77%)</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>2 · Clicked</strong><span class="hint">cta_clicked</span></span><span class="fbar"><i style="width: 22.7%"></i></span><span class="n"><b>980</b>22.7%</span></div>
+        <div class="fdrop"><span></span><span>−468 left before typing an email (48%)</span><span></span></div>
+        <div class="fstage"><span class="lbl">email_submitted<span class="hint">screen 2.1</span></span><span class="fbar"><i style="width: 11.9%"></i></span><span class="n"><b>512</b>52% of step</span></div>
+        <div class="fdrop"><span></span><span>−81 never entered the code (16%)</span><span></span></div>
+        <div class="fstage"><span class="lbl">code_verified<span class="hint">screen 2.2</span></span><span class="fbar"><i style="width: 10%"></i></span><span class="n"><b>431</b>84% of step</span></div>
+        <div class="fdrop"><span></span><span>−35 (8%)</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>3 · Workspace</strong><span class="hint">workspace_created · screen 2.3</span></span><span class="fbar"><i style="width: 9.2%"></i></span><span class="n"><b>396</b>92% of step</span></div>
+        <div class="fdrop"><span></span><span>−95 never copied the command (24%)</span><span></span></div>
+        <div class="fstage"><span class="lbl">command_copied<span class="hint">screen 2.4</span></span><span class="fbar"><i style="width: 7%"></i></span><span class="n"><b>301</b>76% of step</span></div>
+        <div class="fdrop leak"><span></span><span>−133 copied but never connected (44%) · biggest leak</span><span></span></div>
+        <div class="fstage"><span class="lbl">cli_connected<span class="hint">screen 2.5</span></span><span class="fbar"><i style="width: 3.9%"></i></span><span class="n"><b>168</b>56% of step</span></div>
+        <div class="fdrop"><span></span><span>−16 didn't approve the device (10%)</span><span></span></div>
+        <div class="fstage"><span class="lbl">device_approved<span class="hint">screen 2.6</span></span><span class="fbar"><i style="width: 3.5%"></i></span><span class="n"><b>152</b>90% of step</span></div>
+        <div class="fdrop"><span></span><span>−11 (7%)</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>4 · Uploaded</strong><span class="hint">components_uploaded · screen 2.7</span></span><span class="fbar"><i style="width: 3.3%"></i></span><span class="n"><b>141</b>93% of step</span></div>
+        <div class="fdrop"><span></span><span>−103 not active within 14 days (73%)</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>5 · Activated</strong><span class="hint">see Activation tab</span></span><span class="fbar"><i style="width: 0.9%"></i></span><span class="n"><b>38</b>27% of step</span></div>
+      </div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel">
+        <div class="panel-head"><div><h2>The leak: copied → connected, by OS</h2><p class="sub">Share of people who connected after copying the command</p></div></div>
+        <ul class="hbars">
+          <li data-tip="<b>macOS</b><br>112 of 158 copied → connected"><span>macOS</span><span class="track"><i style="width: 71%"></i></span><span class="v">71%</span></li>
+          <li data-tip="<b>Linux</b><br>38 of 59"><span>Linux</span><span class="track"><i style="width: 64%"></i></span><span class="v">64%</span></li>
+          <li data-tip="<b>Windows + WSL</b><br>11 of 30"><span>Windows + WSL</span><span class="track"><i style="width: 37%"></i></span><span class="v">37%</span></li>
+          <li data-tip="<b>Windows, no WSL</b><br>7 of 54"><span>Windows, no WSL</span><span class="track"><i style="width: 13%"></i></span><span class="v">13%</span></li>
+        </ul>
+        <div class="callout callout-acc" style="margin-top: 18px; padding: 14px 16px">
+          <div class="body"><strong>Likely fix: ship a PowerShell installer.</strong><span>Windows is 28% of copies but 11% of connects. The curl one-liner fails before our CLI can send any telemetry, so we only see the silence.</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Stage 1: who counts as a person</h2><p class="sub">6,240 raw sessions → 4,310 humans</p></div></div>
+        <ul class="checks">
+          <li><span class="pill pill-bad">−1,120</span><span>Known bot or headless user agent</span></li>
+          <li><span class="pill pill-bad">−510</span><span>Datacenter IP and no mouse or scroll events</span></li>
+          <li><span class="pill pill-bad">−300</span><span>Under 2 seconds on page and no JS interaction</span></li>
+          <li><span class="pill pill-ok">4,310</span><span>Counted as human visitors. Everything downstream uses this number.</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 16px">Rules run in PostHog before events reach this panel. Raw sessions stay available for ad and affiliate audits.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>Workspace naming: named vs. skipped</h2><p class="sub">Screen 2.3 lets people skip and get a personal workspace. Does skipping hurt later stages?</p></div></div>
+      <div class="table-box" style="border: 0">
+        <table>
+          <thead><tr><th>Choice at 2.3</th><th class="num">Workspaces</th><th class="num">Copied command</th><th class="num">Uploaded</th><th class="num">Invited a teammate</th></tr></thead>
+          <tbody>
+            <tr><td>Named it</td><td class="num">271</td><td class="num">79%</td><td class="num">38%</td><td class="num">21%</td></tr>
+            <tr><td>Skipped (personal)</td><td class="num">125</td><td class="num">69%</td><td class="num">30%</td><td class="num">4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top: 12px">Skippers upload almost as often but rarely invite anyone. They are the ones who never become an org. Prompt them to rename the workspace when they first share something.</p>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+</body>
+</html>

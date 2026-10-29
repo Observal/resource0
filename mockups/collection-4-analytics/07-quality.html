@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.7 Core quality · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+<style>
+  .q1 { background: #1c5cab; color: #fff; }
+  .q2 { background: #3987e5; color: #fff; }
+  .q3 { background: #86b6ef; color: var(--ink); }
+  .q4 { background: #cde2fb; color: var(--ink); }
+  .scale { display: flex; gap: 2px; align-items: center; font-size: 12px; color: var(--muted); margin-top: 12px; flex-wrap: wrap; }
+  .scale i { width: 36px; height: 10px; display: inline-block; }
+  .scale i:first-of-type { border-radius: 3px 0 0 3px; }
+  .scale i:last-of-type { border-radius: 0 3px 3px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>Core quality</h1>
+        <p class="owner">Co-owned by <b>Hema &amp; Hari</b> · the two features everything rests on: cross-harness conversion and insights</p>
+      </div>
+      <div class="filters"><div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button></div></div>
+    </div>
+
+    <section class="g g4">
+      <div class="tile"><span class="k">Conversions run</span><span class="v">3,912</span><span class="hint">Every upload converts to every harness</span></div>
+      <div class="tile"><span class="k">Converted cleanly</span><span class="v">86%</span><span class="delta up">▲ 4 pts vs prior 30d</span></div>
+      <div class="tile"><span class="k">Insight suggestions liked</span><span class="v">64%</span><span class="hint">of 1,240 rated</span></div>
+      <div class="tile"><span class="k">Suggestions applied</span><span class="v">22%</span><span class="delta down">▼ 3 pts</span></div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel span2">
+        <div class="panel-head">
+          <div><h2>Conversion success, from → to</h2><p class="sub">Share of resources that work in the target harness with no manual edits · checked by an agent test run after each conversion</p></div>
+          <select class="select" aria-label="Resource type"><option>All resource types</option><option>Skills</option><option>MCP servers</option><option>Hooks</option><option>Subagents</option><option>Prompts</option></select>
+        </div>
+        <div class="table-box" style="border: 0">
+          <table class="heat">
+            <thead><tr><th>From ↓ &nbsp; To →</th><th>Claude Code</th><th>Codex</th><th>Cursor</th><th>Gemini CLI</th><th>Kiro</th></tr></thead>
+            <tbody>
+              <tr><td>Claude Code</td><td class="na">—</td><td class="c q1" data-tip="<b>Claude Code → Codex</b><br>96% · 1,104 conversions">96%</td><td class="c q3" data-tip="<b>Claude Code → Cursor</b><br>81% · 1,104 conversions<br>Top failure: hooks">81%</td><td class="c q2" data-tip="<b>Claude Code → Gemini CLI</b><br>92%">92%</td><td class="c q2" data-tip="<b>Claude Code → Kiro</b><br>88%">88%</td></tr>
+              <tr><td>Codex</td><td class="c q2" data-tip="<b>Codex → Claude Code</b><br>94%">94%</td><td class="na">—</td><td class="c q3" data-tip="<b>Codex → Cursor</b><br>79%">79%</td><td class="c q2" data-tip="<b>Codex → Gemini CLI</b><br>90%">90%</td><td class="c q2" data-tip="<b>Codex → Kiro</b><br>85%">85%</td></tr>
+              <tr><td>Cursor</td><td class="c q2" data-tip="<b>Cursor → Claude Code</b><br>89%">89%</td><td class="c q2" data-tip="<b>Cursor → Codex</b><br>86%">86%</td><td class="na">—</td><td class="c q3" data-tip="<b>Cursor → Gemini CLI</b><br>84%">84%</td><td class="c q3" data-tip="<b>Cursor → Kiro</b><br>80%">80%</td></tr>
+              <tr><td>Gemini CLI</td><td class="c q2" data-tip="<b>Gemini CLI → Claude Code</b><br>93%">93%</td><td class="c q2" data-tip="<b>Gemini CLI → Codex</b><br>91%">91%</td><td class="c q3" data-tip="<b>Gemini CLI → Cursor</b><br>77%">77%</td><td class="na">—</td><td class="c q3" data-tip="<b>Gemini CLI → Kiro</b><br>83%">83%</td></tr>
+              <tr><td>Kiro</td><td class="c q2" data-tip="<b>Kiro → Claude Code</b><br>87%">87%</td><td class="c q3" data-tip="<b>Kiro → Codex</b><br>84%">84%</td><td class="c q4" data-tip="<b>Kiro → Cursor</b><br>72% · worst pair">72%</td><td class="c q3" data-tip="<b>Kiro → Gemini CLI</b><br>82%">82%</td><td class="na">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="scale"><span style="margin-right: 6px">Success</span><i class="q4"></i><i class="q3"></i><i class="q2"></i><i class="q1"></i><span style="margin-left: 6px">&lt;75% · 75–84 · 85–94 · 95+</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div><h2>By resource type</h2><p class="sub">Clean conversion rate, all harness pairs</p></div></div>
+        <ul class="hbars">
+          <li><span>Prompts</span><span class="track"><i style="width: 99%"></i></span><span class="v">99%</span></li>
+          <li><span>Skills</span><span class="track"><i style="width: 98%"></i></span><span class="v">98%</span></li>
+          <li><span>MCP servers</span><span class="track"><i style="width: 97%"></i></span><span class="v">97%</span></li>
+          <li><span>Subagents</span><span class="track"><i style="width: 88%"></i></span><span class="v">88%</span></li>
+          <li><span><strong>Hooks</strong></span><span class="track"><i style="width: 54%"></i></span><span class="v"><strong style="color: var(--ink)">54%</strong></span></li>
+        </ul>
+        <p class="hint" style="margin-top: 14px">Hooks drag the whole matrix down. Fixing them alone takes the overall rate from 86% to ~93%.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Top failure reasons</h2><p class="sub">From the post-conversion test runs</p></div></div>
+        <div class="table-box" style="border: 0">
+          <table>
+            <tbody>
+              <tr><td style="white-space: normal">Hook event has no equivalent in target (e.g. <code>PreToolUse</code> → Cursor)</td><td class="num">214</td></tr>
+              <tr><td style="white-space: normal">Subagent tool allowlist names a tool the target lacks</td><td class="num">96</td></tr>
+              <tr><td style="white-space: normal">MCP server needs an env var we couldn't map</td><td class="num">61</td></tr>
+              <tr><td style="white-space: normal">Skill references a file path outside the bundle</td><td class="num">38</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel">
+        <div class="panel-head"><div><h2>Alpha testers</h2><p class="sub">4 people, comped by OC · rule: active every day</p></div><span class="pill pill-warn">1 quiet</span></div>
+        <div class="table-box" style="border: 0">
+          <table>
+            <thead><tr><th>Tester</th><th>Last active</th><th class="num">Sessions / wk</th><th class="num">Issues filed</th></tr></thead>
+            <tbody>
+              <tr><td><span class="row" style="gap: 8px; flex-wrap: nowrap"><span class="av">AN</span>Ana <span class="hint">existing</span></span></td><td>1h ago</td><td class="num">41</td><td class="num">9</td></tr>
+              <tr><td><span class="row" style="gap: 8px; flex-wrap: nowrap"><span class="av">DV</span>Dev <span class="hint">existing</span></span></td><td>Today</td><td class="num">28</td><td class="num">6</td></tr>
+              <tr><td><span class="row" style="gap: 8px; flex-wrap: nowrap"><span class="av">MO</span>Mo <span class="hint">farm</span></span></td><td>Today</td><td class="num">35</td><td class="num">12</td></tr>
+              <tr><td><span class="row" style="gap: 8px; flex-wrap: nowrap"><span class="av">JL</span>Jules <span class="hint">farm</span></span></td><td><span class="pill pill-warn">3 days ago</span></td><td class="num">4</td><td class="num">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Research tracks</h2><p class="sub">2 people improving the core, not shipping features</p></div></div>
+        <ul class="checks">
+          <li><span class="pill pill-ok">Shipped</span><span><strong>Conversion:</strong> map Claude Code hooks to Cursor rules where possible. Hooks 41% → 54%.</span></li>
+          <li><span class="pill pill-accent">Running</span><span><strong>Conversion:</strong> agent rewrites subagent tool lists per target. A/B on 50% of uploads.</span></li>
+          <li><span class="pill pill-accent">Running</span><span><strong>Insights:</strong> show one suggestion instead of five. Early: liked 71% vs 61%.</span></li>
+          <li><span class="pill">Next</span><span><strong>Insights:</strong> find out why applied fell. Hypothesis: suggestions don't link to the exact file.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+</body>
+</html>

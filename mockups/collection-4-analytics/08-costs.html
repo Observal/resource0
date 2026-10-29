@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.8 Costs · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>What it costs us</h1>
+        <p class="owner">Owned by <b>Hari</b> · the backend is AI-powered, so every upload and every insight has a token bill</p>
+      </div>
+      <div class="filters"><div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button><button aria-pressed="false">Since launch</button></div></div>
+    </div>
+
+    <section class="g g4">
+      <div class="tile"><span class="k">Total, last 30d</span><span class="v">$2,238</span><span class="hint">$640 of it covered by cloud credits</span></div>
+      <div class="tile"><span class="k">Per activated org</span><span class="v">$249</span><span class="hint">9 orgs</span></div>
+      <div class="tile"><span class="k">Per activated person</span><span class="v">$16</span><span class="hint">138 people</span></div>
+      <div class="tile"><span class="k">PostHog</span><span class="v">$0</span><span class="hint">612k of 1M free events</span></div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel span2">
+        <div class="panel-head"><div><h2>Weekly spend by what it pays for</h2><p class="sub">Insights grow with active people; conversion grows with uploads</p></div></div>
+        <div id="spend"></div>
+        <div class="legend"><span><i style="background: var(--s1)"></i>Conversion + test runs (LLM)</span><span><i style="background: var(--s2)"></i>Insights on traces (LLM)</span><span><i style="background: var(--s3)"></i>Cloud infra</span></div>
+      </div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel">
+        <div class="panel-head"><div><h2>Will PostHog cost too much?</h2><p class="sub">Answer for now: no</p></div></div>
+        <ul class="checks">
+          <li><span class="pill pill-ok">Today</span><span>612k events a month. Free up to 1M.</span></li>
+          <li><span class="pill">At Jan target</span><span>~2.1M events at 50 activated orgs ≈ <strong>$105 / month</strong>.</span></li>
+          <li><span class="pill pill-warn">Watch</span><span>Session replay is 70% of events. Sample it at 20% on the dashboard and keep 100% on the landing page and onboarding.</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Insight minutes</h2><p class="sub">Minutes of agent traces analyzed. A possible unit to charge by.</p></div></div>
+        <div class="g trio">
+          <div class="tile" style="padding: 14px"><span class="k">Trace minutes</span><span class="v" style="font-size: 24px">13,180</span></div>
+          <div class="tile" style="padding: 14px"><span class="k">Our cost / min</span><span class="v" style="font-size: 24px">$0.09</span></div>
+          <div class="tile" style="padding: 14px"><span class="k">Self-hosted est.</span><span class="v" style="font-size: 24px">$0.03</span></div>
+        </div>
+        <p class="hint" style="margin-top: 12px">Our cost is per token, not per minute. Per-minute pricing only makes sense once we host an open-weights model and the cost per minute stops swinging with prompt size.</p>
+      </div>
+    </section>
+
+    <section class="stack" style="gap: 10px">
+      <h2 style="font-size: 18px">Most expensive workspaces</h2>
+      <div class="table-box">
+        <table>
+          <thead><tr><th>Workspace</th><th class="num">Activated</th><th class="num">Trace minutes</th><th class="num">Insights cost</th><th class="num">Conversion cost</th><th class="num">Total</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Quarry AI</strong></td><td class="num">6</td><td class="num">2,350</td><td class="num">$212</td><td class="num">$31</td><td class="num">$243</td><td>Asked for 15 seats; would pay</td></tr>
+            <tr><td><strong>Tidewater</strong></td><td class="num">8</td><td class="num">2,090</td><td class="num">$188</td><td class="num">$44</td><td class="num">$232</td><td>Has user override</td></tr>
+            <tr><td><strong>Lumen Health</strong></td><td class="num">3</td><td class="num">1,080</td><td class="num">$97</td><td class="num">$18</td><td class="num">$115</td><td>Offered $15 / seat</td></tr>
+            <tr><td><strong>Halcyon Games</strong></td><td class="num">1</td><td class="num">120</td><td class="num">$11</td><td class="num">$64</td><td class="num">$75</td><td><span class="pill pill-warn">Re-uploads 40 prompts daily</span></td></tr>
+            <tr><td><strong>Northwind Labs</strong></td><td class="num">4</td><td class="num">690</td><td class="num">$62</td><td class="num">$9</td><td class="num">$71</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint">Halcyon re-converts unchanged prompts on every sync. Cache by content hash before raising anyone's resource limit.</p>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+<script>
+  stackedBars(document.getElementById("spend"), {
+    labels: ["Nov 2", "Nov 9", "Nov 16", "Nov 23", "Nov 30", "Dec 7", "Dec 14"],
+    unit: "$",
+    series: [
+      { name: "Conversion + test runs", color: "var(--s1)", values: [40, 62, 78, 98, 98, 104, 112] },
+      { name: "Insights on traces", color: "var(--s2)", values: [60, 120, 180, 240, 268, 310, 368] },
+      { name: "Cloud infra", color: "var(--s3)", values: [150, 150, 150, 150, 160, 165, 165] },
+    ],
+  });
+</script>
+</body>
+</html>

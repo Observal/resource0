@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.5 Share loop · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>Share loop</h1>
+        <p class="owner">Owned by <b>Raja &amp; Hema</b> · Value 3: does one person's share bring in the next?</p>
+      </div>
+      <div class="filters"><div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button><button aria-pressed="false">Since launch</button></div></div>
+    </div>
+
+    <section class="g g4">
+      <div class="tile" data-tip="<b>Viral coefficient (K)</b><br>New uploaders who came from a share ÷ all uploaders<br>48 ÷ 141"><span class="k">K-factor</span><span class="v">0.34</span><span class="delta up">▲ from 0.21 last 30d</span></div>
+      <div class="tile"><span class="k">People who shared</span><span class="v">88 <small>of 141 uploaders</small></span><span class="hint">62% share at least once</span></div>
+      <div class="tile"><span class="k">Opens per share</span><span class="v">2.3</span><span class="hint">Links get passed around Slack</span></div>
+      <div class="tile"><span class="k">Share → activated</span><span class="v">12</span><span class="hint">32% of all activated this month</span></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h2>One share, start to finish</h2><p class="sub">Last 30 days · events from screens 2.10–2.12</p></div></div>
+      <div class="funnel">
+        <div class="fstage"><span class="lbl"><strong>share_created</strong><span class="hint">screen 2.10</span></span><span class="fbar"><i style="width: 43.6%"></i></span><span class="n"><b>212</b>by 88 people</span></div>
+        <div class="fdrop"><span></span><span>Each link is opened 2.3 times on average</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>share_opened</strong><span class="hint">screen 2.11 · 380 new, 106 existing</span></span><span class="fbar"><i style="width: 100%"></i></span><span class="n"><b>486</b>opens</span></div>
+        <div class="fdrop leak"><span></span><span>−315 opened the page but their agent never ran the command (65%)</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>share_installed</strong><span class="hint">screen 2.12</span></span><span class="fbar"><i style="width: 35.2%"></i></span><span class="n"><b>171</b>35% of opens</span></div>
+        <div class="fdrop"><span></span><span>−123 used the shared resource but never uploaded their own</span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>Uploaded their own</strong><span class="hint">components_uploaded, new people</span></span><span class="fbar"><i style="width: 9.9%"></i></span><span class="n"><b>48</b>28% of installs</span></div>
+        <div class="fdrop"><span></span><span></span><span></span></div>
+        <div class="fstage"><span class="lbl"><strong>Activated</strong><span class="hint">within 14 days</span></span><span class="fbar"><i style="width: 2.5%"></i></span><span class="n"><b>12</b>25% of uploaders</span></div>
+      </div>
+    </section>
+
+    <section class="g g2">
+      <div class="panel span2">
+        <div class="panel-head"><div><h2>New uploaders per week, by how they arrived</h2><p class="sub">Shares are a growing slice of new people</p></div></div>
+        <div id="src"></div>
+        <div class="legend"><span><i style="background: var(--s1)"></i>Came on their own</span><span><i style="background: var(--s2)"></i>Came from a share</span></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Most shared resources</h2><p class="sub">Last 30 days</p></div></div>
+        <div class="table-box" style="border: 0">
+          <table>
+            <thead><tr><th>Resource</th><th class="num">Shares</th><th class="num">Installs</th></tr></thead>
+            <tbody>
+              <tr><td>pr-reviewer <span class="hint">Subagent</span></td><td class="num">31</td><td class="num">29</td></tr>
+              <tr><td>google-workspace <span class="hint">MCP · prebuilt</span></td><td class="num">27</td><td class="num">24</td></tr>
+              <tr><td>react-conventions <span class="hint">Skill</span></td><td class="num">19</td><td class="num">17</td></tr>
+              <tr><td>pre-commit-lint <span class="hint">Hook</span></td><td class="num">14</td><td class="num">6</td></tr>
+              <tr><td>db-migrator <span class="hint">Subagent</span></td><td class="num">12</td><td class="num">11</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hint" style="margin-top: 10px">Hooks install poorly: most recipients are on a harness where the conversion drops them. See <a href="07-quality.html">Core quality</a>.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Recipients' harness</h2><p class="sub">Where shared resources get installed (171)</p></div></div>
+        <ul class="hbars">
+          <li><span>Claude Code</span><span class="track"><i style="width: 100%"></i></span><span class="v">58%</span></li>
+          <li><span>Codex</span><span class="track"><i style="width: 36%"></i></span><span class="v">21%</span></li>
+          <li><span>Cursor</span><span class="track"><i style="width: 22%"></i></span><span class="v">13%</span></li>
+          <li><span>Gemini CLI</span><span class="track"><i style="width: 14%"></i></span><span class="v">8%</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 14px">42% of installs land on a different harness than the sharer uses. That's the cross-harness conversion earning its keep.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+<script>
+  lineChart(document.getElementById("src"), {
+    labels: ["Nov 2", "Nov 9", "Nov 16", "Nov 23", "Nov 30", "Dec 7", "Dec 14"],
+    series: [
+      { name: "Came on their own", color: "var(--s1)", values: [12, 18, 21, 22, 23, 24, 24] },
+      { name: "Came from a share", color: "var(--s2)", values: [1, 3, 6, 9, 11, 13, 15] },
+    ],
+  });
+</script>
+</body>
+</html>

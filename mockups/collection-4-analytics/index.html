@@ -5,11 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Analytics panel · Resource0</title>
 <link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .stage { margin-top: 40px; }
+  .stage h2 { font-size: 22px; }
+  .stage > p { margin-top: 4px; }
+  .screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+  .screen { display: flex; flex-direction: column; gap: 6px; padding: 20px; text-decoration: none; color: var(--ink); }
+  .screen:hover { border-color: var(--accent); color: var(--ink); }
+  .screen .num { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .screen h3 { font-size: 16px; }
+  .note { margin-top: 40px; padding: 20px; border-radius: 12px; background: var(--warn-soft); color: #5C3700; }
+</style>
 </head>
 <body>
 <div class="page">
-  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a></header>
-  <main class="wrap"><h1>Analytics panel</h1><p class="lede" style="margin-top: 8px">Coming soon.</p></main>
+  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a><span class="pill">Collection 04</span></header>
+  <main class="wrap">
+    <p class="eyebrow">Collection 04</p>
+    <h1 style="font-size: 40px; margin-top: 6px">Analytics panel</h1>
+    <p class="lede" style="margin-top: 8px; max-width: 700px">Our internal view of the business: the funnel from first visit to activated org, where it leaks, and what each user costs us. Click any panel, then use the tabs or the arrows in the corner. All numbers are sample data, set at Dec 14, 2026.</p>
+
+    <section class="stage">
+      <h2>Are we winning?</h2>
+      <p class="hint">The council's success criteria: more orgs, more activated people per org.</p>
+      <div class="screens">
+        <a class="card screen" href="01-overview.html"><span class="num">4.1</span><h3>Overview</h3><span class="hint">Nov / Dec / Jan targets, top numbers, biggest leak</span></a>
+        <a class="card screen" href="04-activation.html"><span class="num">4.4</span><h3>Activation</h3><span class="hint">Draft definitions, orgs one or two people away</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Growth loop · Raja &amp; Hema</h2>
+      <p class="hint">Track every stage, find the leak, fix it, repeat.</p>
+      <div class="screens">
+        <a class="card screen" href="02-funnel.html"><span class="num">4.2</span><h3>Funnel</h3><span class="hint">Stages 1–5 built from the Collection 02 events</span></a>
+        <a class="card screen" href="03-channels.html"><span class="num">4.3</span><h3>Channels &amp; creators</h3><span class="hint">Affiliate links, ad tests, cost per activated person</span></a>
+        <a class="card screen" href="05-share-loop.html"><span class="num">4.5</span><h3>Share loop</h3><span class="hint">Value 3: K-factor and where shares drop off</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Running the MVP · Hari, Hema</h2>
+      <p class="hint">Hidden limits, the quality of the core features, and the bill.</p>
+      <div class="screens">
+        <a class="card screen" href="06-workspaces.html"><span class="num">4.6</span><h3>Workspaces &amp; limits</h3><span class="hint">8 resources / 10 users, override requests as pricing signal</span></a>
+        <a class="card screen" href="07-quality.html"><span class="num">4.7</span><h3>Core quality</h3><span class="hint">Conversion success by harness, insights, alpha testers</span></a>
+        <a class="card screen" href="08-costs.html"><span class="num">4.8</span><h3>Costs</h3><span class="hint">LLM and infra spend, PostHog, insight minutes</span></a>
+      </div>
+    </section>
+
+    <div class="note stack" style="gap: 8px">
+      <strong>Open questions for the team</strong>
+      <span>Activation is still a draft. If an agent pulling a resource counted, we'd have 292 activated people instead of 138. Decide before the December number means anything.</span>
+      <span>An org needs 5 activated people, but the hidden cap is 10 users. Teams that grow past 10 have to ask us first. Should a request for more seats count as a signal toward activation?</span>
+      <span>Stage 1 depends on filtering bots well. The rules on 4.2 are a starting point. Affiliates are paid on activated people, so bad filtering never costs us money.</span>
+    </div>
+  </main>
 </div>
 </body>
 </html>

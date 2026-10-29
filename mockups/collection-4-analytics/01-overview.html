@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.1 Overview · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="an.css">
+</head>
+<body>
+<div class="page">
+  <header class="an-top">
+    <div class="topbar"><a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a><div class="row" style="gap: 8px"><span class="pill">Internal analytics</span><span class="pill">Sample data · Dec 14, 2026</span></div></div>
+    <nav class="tabs" aria-label="Analytics panels"></nav>
+  </header>
+  <main class="wrap stack" style="gap: 20px">
+    <div class="head">
+      <div class="stack" style="gap: 4px">
+        <h1>Are we on track?</h1>
+        <p class="owner">Success criteria owned by <b>the council</b> · more orgs, more activated people per org</p>
+      </div>
+      <div class="filters"><div class="seg"><button aria-pressed="false">7d</button><button aria-pressed="true">30d</button><button aria-pressed="false">Since launch</button></div></div>
+    </div>
+
+    <section class="g g3" aria-label="Targets">
+      <div class="panel target">
+        <div class="row" style="justify-content: space-between"><span class="when">NOV · activated people</span><span class="pill pill-ok">✓ Hit Nov 2</span></div>
+        <div class="big">84 <small>/ 5</small></div>
+        <div class="meter" data-tip="<b>November</b><br>84 activated people on Nov 30<br>Target: 5"><i style="width: 100%"></i></div>
+        <span class="hint">The bar was set low on purpose. December switches to orgs.</span>
+      </div>
+      <div class="panel target">
+        <div class="row" style="justify-content: space-between"><span class="when">DEC · activated orgs</span><span class="pill pill-warn">! 17 days left</span></div>
+        <div class="big">9 <small>/ 15</small></div>
+        <div class="meter" data-tip="<b>December</b><br>9 activated today<br>+6 orgs at 3–4 active users (striped)<br>Target: 15"><i style="width: 60%"></i><i class="proj" style="width: 40%"></i></div>
+        <span class="hint">6 orgs are 1–2 users away. If all convert, we land on exactly 15. <a href="04-activation.html">See them</a></span>
+      </div>
+      <div class="panel target">
+        <div class="row" style="justify-content: space-between"><span class="when">JAN · activated orgs</span><span class="pill pill-bad">✕ Off pace</span></div>
+        <div class="big">9 <small>/ 50</small></div>
+        <div class="meter" data-tip="<b>January</b><br>9 of 50 activated orgs<br>Current pace: ~3 new/week → ~26 by Jan 31"><i style="width: 18%"></i></div>
+        <span class="hint">At ~3 new orgs a week we reach ~26. Need ~10 a week.</span>
+      </div>
+    </section>
+
+    <section class="g g4" aria-label="Key numbers, last 30 days">
+      <div class="tile"><span class="k">Human visitors</span><span class="v">4,310</span><span class="delta up">▲ 38% vs prior 30d</span></div>
+      <div class="tile"><span class="k">Workspaces created</span><span class="v">396</span><span class="delta up">▲ 22%</span></div>
+      <div class="tile"><span class="k">Uploaded via CLI</span><span class="v">141</span><span class="delta up">▲ 9%</span></div>
+      <div class="tile"><span class="k">Activated people <span class="hint">(14d)</span></span><span class="v">138</span><span class="delta up">▲ 64%</span></div>
+    </section>
+
+    <div class="callout callout-bad">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <div class="body">
+        <strong>Biggest leak this month: 44% copy the CLI command but never connect.</strong>
+        <span>301 people copied the command, 168 connected. Same leak as last month, slightly worse (−3 pts). Most drop-offs are on Windows without WSL.</span>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="02-funnel.html" style="background: var(--surface)">Open funnel</a>
+    </div>
+
+    <section class="g g2">
+      <div class="panel span2">
+        <div class="panel-head">
+          <div><h2>Activated orgs, weekly</h2><p class="sub">An org counts once 5 or more of its people are active in the same 14 days</p></div>
+        </div>
+        <div id="orgs"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Funnel, last 30 days</h2><p class="sub">Each stage as a share of human visitors</p></div><a class="hint" href="02-funnel.html">Details →</a></div>
+        <ul class="hbars">
+          <li data-tip="<b>Stage 1 · Landed</b><br>4,310 humans (6,240 raw sessions)"><span>1 · Landed</span><span class="track"><i style="width: 100%"></i></span><span class="v">4,310</span></li>
+          <li data-tip="<b>Stage 2 · Clicked</b><br>980 · 22.7% of visitors"><span>2 · Clicked</span><span class="track"><i style="width: 22.7%"></i></span><span class="v">980</span></li>
+          <li data-tip="<b>Stage 3 · Workspace</b><br>396 · 40.4% of clicks"><span>3 · Workspace</span><span class="track"><i style="width: 9.2%"></i></span><span class="v">396</span></li>
+          <li data-tip="<b>Stage 4 · Uploaded</b><br>141 · 35.6% of workspaces"><span>4 · Uploaded</span><span class="track"><i style="width: 3.3%"></i></span><span class="v">141</span></li>
+          <li data-tip="<b>Stage 5 · Activated</b><br>38 · 27.0% of uploaders"><span>5 · Activated</span><span class="track"><i style="width: 0.9%"></i></span><span class="v">38</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2>Where activated people came from</h2><p class="sub">Last 30 days, 38 people</p></div><a class="hint" href="03-channels.html">Details →</a></div>
+        <ul class="hbars">
+          <li><span>Organic / direct</span><span class="track"><i style="width: 100%"></i></span><span class="v">14</span></li>
+          <li><span>Share links</span><span class="track"><i style="width: 86%"></i></span><span class="v">12</span></li>
+          <li><span>Creator affiliates</span><span class="track"><i style="width: 43%"></i></span><span class="v">6</span></li>
+          <li><span>Paid ads</span><span class="track"><i style="width: 21%"></i></span><span class="v">3</span></li>
+          <li><span>HN / Reddit</span><span class="track"><i style="width: 21%"></i></span><span class="v">3</span></li>
+        </ul>
+        <p class="hint" style="margin-top: 14px">Share links are 9% of visitors but 32% of activated people.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="an.js"></script>
+<script>
+  lineChart(document.getElementById("orgs"), {
+    labels: ["Oct 26", "Nov 2", "Nov 9", "Nov 16", "Nov 23", "Nov 30", "Dec 7", "Dec 14", "Dec 21", "Dec 28"],
+    series: [
+      { name: "Activated orgs", color: "var(--s1)", values: [0, 0, 1, 2, 3, 5, 7, 9, null, null] },
+      { name: "If the 6 close orgs convert", color: "var(--s1)", dashed: true, label: false, values: [null, null, null, null, null, null, null, 9, 12, 15] },
+    ],
+    target: { value: 15, label: "Dec 15" },
+  });
+</script>
+</body>
+</html>
