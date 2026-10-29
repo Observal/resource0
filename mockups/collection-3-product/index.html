@@ -5,11 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Product · Resource0</title>
 <link rel="stylesheet" href="../shared/r0.css">
+<style>
+  .stage { margin-top: 40px; }
+  .stage h2 { font-size: 22px; }
+  .stage > p { margin-top: 4px; }
+  .screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+  .screen { display: flex; flex-direction: column; gap: 6px; padding: 20px; text-decoration: none; color: var(--ink); }
+  .screen:hover { border-color: var(--accent); color: var(--ink); }
+  .screen .num { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .screen h3 { font-size: 16px; }
+  .act { align-self: flex-start; }
+  .note { margin-top: 40px; padding: 20px; border-radius: 12px; background: var(--warn-soft); color: #5C3700; }
+</style>
 </head>
 <body>
 <div class="page">
-  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a></header>
-  <main class="wrap"><h1>Product</h1><p class="lede" style="margin-top: 8px">Coming soon.</p></main>
+  <header class="topbar"><a class="logo" href="../index.html"><span class="logo-mark">0</span>Resource0</a><span class="pill">Collection 03</span></header>
+  <main class="wrap">
+    <p class="eyebrow">Collection 03</p>
+    <h1 style="font-size: 40px; margin-top: 6px">Product</h1>
+    <p class="lede" style="margin-top: 8px; max-width: 700px">What Raja sees three weeks after onboarding (Collection 02): Acme AI has 7 members, 21 of Raja's resources are synced and 8 are shared. Click a screen, then use the arrows in the corner.</p>
+    <p class="hint" style="margin-top: 8px">Screens marked <span class="pill pill-ok">Activation</span> fire an event that counts toward "this person cares": a new version of a resource, or opening personal or resource insights.</p>
+
+    <section class="stage">
+      <h2>Coming back</h2>
+      <p class="hint">Home shows what changed. The library shows everything synced and where it works.</p>
+      <div class="screens">
+        <a class="card screen" href="01-home.html"><span class="num">3.1</span><h3>Home</h3><span class="hint">event: home_viewed</span></a>
+        <a class="card screen" href="02-resources.html"><span class="num">3.2</span><h3>Resource library</h3><span class="hint">event: library_viewed</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>One resource (Value 1, kept up)</h2>
+      <p class="hint">Conversions you can check, versions you can roll back, and whether a change helped.</p>
+      <div class="screens">
+        <a class="card screen" href="03-resource.html"><span class="num">3.3</span><h3>Resource overview</h3><span class="hint">event: resource_viewed</span></a>
+        <a class="card screen" href="04-conversion.html"><span class="num">3.4</span><h3>Review a partial conversion</h3><span class="hint">event: conversion_reviewed</span></a>
+        <a class="card screen" href="05-versions.html"><span class="num">3.5</span><h3>Versions and who's on them</h3><span class="hint">event: versions_viewed</span></a>
+        <a class="card screen" href="06-resource-insights.html"><span class="num">3.6</span><h3>Resource insights</h3><span class="hint">event: resource_insights_viewed</span><span class="pill pill-ok act">Activation</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>The loop in the terminal</h2>
+      <p class="hint">Most days nobody opens the website. Editing a file is the release; teammates get it at their next session.</p>
+      <div class="screens">
+        <a class="card screen" href="07-cli-sync.html"><span class="num">3.7</span><h3>Raja publishes v4</h3><span class="hint">event: version_published</span><span class="pill pill-ok act">Activation</span></a>
+        <a class="card screen" href="08-cli-update.html"><span class="num">3.8</span><h3>Hema gets the update</h3><span class="hint">event: update_received, resource_pulled</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Insights (Value 2, kept up)</h2>
+      <p class="hint">Personal insights go deep. Team insights stay extremely simple: who uses what.</p>
+      <div class="screens">
+        <a class="card screen" href="09-my-insights.html"><span class="num">3.9</span><h3>Just me</h3><span class="hint">event: my_insights_viewed</span><span class="pill pill-ok act">Activation</span></a>
+        <a class="card screen" href="10-team-insights.html"><span class="num">3.10</span><h3>Team</h3><span class="hint">event: team_insights_viewed</span></a>
+      </div>
+    </section>
+
+    <section class="stage">
+      <h2>Workspace</h2>
+      <p class="hint">Members, the beta limit, connectors for non-engineers, and what we upload.</p>
+      <div class="screens">
+        <a class="card screen" href="11-members.html"><span class="num">3.11</span><h3>Members and invite</h3><span class="hint">event: invite_copied</span></a>
+        <a class="card screen" href="12-limit.html"><span class="num">3.12</span><h3>Hitting the sharing limit</h3><span class="hint">event: limit_hit, limit_increase_requested</span></a>
+        <a class="card screen" href="13-connectors.html"><span class="num">3.13</span><h3>Connectors</h3><span class="hint">event: connector_connected</span></a>
+        <a class="card screen" href="14-settings.html"><span class="num">3.14</span><h3>Sync &amp; privacy</h3><span class="hint">event: sync_settings_changed</span></a>
+      </div>
+    </section>
+
+    <div class="note stack" style="gap: 8px">
+      <strong>Open questions</strong>
+      <span>Second connector: the plan names Google Workspace and "one more". 3.13 leaves it blank. Suggest choosing from the most common MCP servers synced during alpha.</span>
+      <span>Auto-update is on by default (3.14). That's faster for the share loop, but a bad version reaches everyone at once. The rollback on 3.5 is the safety net. Is that enough?</span>
+      <span>Limits: 8 shared resources and 10 members are never shown up front, only when someone hits one (3.12). Requests need an override in our admin tooling (Collection 04).</span>
+      <span>Cloud tests on conversions (3.4, 3.7) are where the backend is "slightly AI powered". They cost per token, so we should watch spend per workspace from day one.</span>
+    </div>
+  </main>
 </div>
 </body>
 </html>

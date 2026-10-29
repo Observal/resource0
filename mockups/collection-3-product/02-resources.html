@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.2 Resources · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html" aria-current="page">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div class="stack" style="gap: 4px">
+          <h1>Resources</h1>
+          <p class="hint">Everything synced from your machines, converted for every harness.</p>
+        </div>
+        <div class="seg" role="group" aria-label="Scope"><a href="02-resources.html" aria-current="page">Mine · 21</a><a href="#">Shared in Acme AI · 8</a></div>
+      </div>
+
+      <div class="filters">
+        <input type="text" placeholder="Search resources" aria-label="Search resources">
+        <a class="chip" aria-pressed="true" href="#">All types</a>
+        <a class="chip" href="#">Skills 6</a>
+        <a class="chip" href="#">MCP servers 4</a>
+        <a class="chip" href="#">Hooks 2</a>
+        <a class="chip" href="#">Subagents 4</a>
+        <a class="chip" href="#">Prompts &amp; rules 5</a>
+        <a class="chip" href="#">⚠ Needs review 1</a>
+      </div>
+
+      <div class="legend">
+        <span class="s-native"><span class="dot"></span>Native</span>
+        <span class="s-conv"><span class="dot"></span>Converted</span>
+        <span class="s-part"><span class="dot"></span>Partial</span>
+        <span class="s-na"><span class="dot"></span>Not supported</span>
+        <span>Harness order: Claude Code · Codex · Cursor · Gemini CLI · OpenCode</span>
+      </div>
+
+      <div class="table-box">
+        <table>
+          <thead><tr><th scope="col">Resource</th><th scope="col">Type</th><th scope="col">Version</th><th scope="col">Harnesses</th><th scope="col">Visibility</th><th scope="col" style="text-align: right">Runs · 7d</th><th scope="col">Updated</th></tr></thead>
+          <tbody>
+            <tr><td><a href="03-resource.html"><strong>pr-reviewer</strong></a></td><td>Skill</td><td class="mono">v4</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">118</td><td class="hint">Mon</td></tr>
+            <tr><td><strong>github</strong></td><td>MCP server</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">431</td><td class="hint">Oct 9</td></tr>
+            <tr><td><a href="04-conversion.html"><strong>db-migrator</strong></a> <span class="pill pill-warn">Review</span></td><td>Subagent</td><td class="mono">v2</td><td><span class="s-native"><span class="dot"></span></span><span class="s-part"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">37</td><td class="hint">Tue</td></tr>
+            <tr><td><strong>pre-commit-lint</strong></td><td>Hook</td><td class="mono">v3</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-part"><span class="dot"></span></span><span class="s-na"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">64</td><td class="hint">Oct 21</td></tr>
+            <tr><td><strong>release-notes</strong></td><td>Prompt</td><td class="mono">v2</td><td><span class="s-conv"><span class="dot"></span></span><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">6</td><td class="hint">Oct 24</td></tr>
+            <tr><td><strong>react-conventions</strong></td><td>Rule</td><td class="mono">v5</td><td><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill pill-accent">Shared</span></td><td class="r">92</td><td class="hint">Oct 18</td></tr>
+            <tr><td><strong>api-docs-writer</strong></td><td>Skill</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">0</td><td class="hint">Oct 9</td></tr>
+            <tr><td><strong>k8s-debug</strong></td><td>Subagent</td><td class="mono">v1</td><td><span class="s-native"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span><span class="s-conv"><span class="dot"></span></span></td><td><span class="pill">Private</span></td><td class="r">0</td><td class="hint">Sep 11</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hint">Showing 8 of 21. Private resources are only on your machines and in your cloud copy. <a href="12-limit.html">Share api-docs-writer</a> to see what happens at the sharing limit.</p>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="01-home.html">← Back</a><a href="index.html">Collection</a><a href="03-resource.html">Next →</a></nav>
+</body>
+</html>

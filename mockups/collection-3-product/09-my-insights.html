@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.9 My insights · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+<style>
+  .cols { display: flex; align-items: flex-end; gap: 4px; height: 120px; margin-top: 16px; }
+  .cols span { flex: 1; background: var(--accent); border-radius: 4px 4px 0 0; min-width: 4px; }
+  .cols span.we { background: var(--line-strong); }
+  .axis { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 6px; }
+  .done { color: var(--ok); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html" aria-current="page">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div class="stack" style="gap: 4px">
+          <h1>How you use your agent</h1>
+          <p class="hint">Just you · last 30 days · all harnesses · sample data</p>
+        </div>
+        <div class="row" style="gap: 8px">
+          <div class="seg" role="group" aria-label="Who"><a href="09-my-insights.html" aria-current="page">Just me</a><a href="10-team-insights.html">Team</a></div>
+          <div class="seg" role="group" aria-label="Time range"><a href="#">7 days</a><a href="09-my-insights.html" aria-current="page">30 days</a></div>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <div class="card kpi"><span class="hint">Sessions</span><div class="v">188</div><span class="d"><span class="up">↑ 13%</span></span></div>
+        <div class="card kpi"><span class="hint">Resources used</span><div class="v">15 <span class="hint" style="font-size: 15px; font-weight: 400">of 21</span></div><span class="d">6 idle</span></div>
+        <div class="card kpi"><span class="hint">Tokens per session</span><div class="v">41k</div><span class="d"><span class="up">↓ 18%</span></span></div>
+        <div class="card kpi"><span class="hint">Failed tool calls</span><div class="v">1.9%</div><span class="d"><span class="up">↓ from 3.2%</span></span></div>
+      </div>
+
+      <section class="card tight">
+        <h2>Sessions per day</h2>
+        <div class="cols" role="img" aria-label="Sessions per day over 30 days, between 2 and 11 a day, lower on weekends">
+          <span style="height: 55%" title="Sep 30: 6"></span><span style="height: 64%" title="Oct 1: 7"></span><span style="height: 45%" title="Oct 2: 5"></span><span style="height: 73%" title="Oct 3: 8"></span><span class="we" style="height: 18%" title="Oct 4: 2"></span><span class="we" style="height: 18%" title="Oct 5: 2"></span><span style="height: 55%" title="Oct 6: 6"></span><span style="height: 64%" title="Oct 7: 7"></span><span style="height: 73%" title="Oct 8: 8"></span><span style="height: 55%" title="Oct 9: 6"></span><span style="height: 64%" title="Oct 10: 7"></span><span class="we" style="height: 27%" title="Oct 11: 3"></span><span class="we" style="height: 18%" title="Oct 12: 2"></span><span style="height: 82%" title="Oct 13: 9"></span><span style="height: 73%" title="Oct 14: 8"></span><span style="height: 64%" title="Oct 15: 7"></span><span style="height: 73%" title="Oct 16: 8"></span><span style="height: 55%" title="Oct 17: 6"></span><span class="we" style="height: 27%" title="Oct 18: 3"></span><span class="we" style="height: 18%" title="Oct 19: 2"></span><span style="height: 82%" title="Oct 20: 9"></span><span style="height: 91%" title="Oct 21: 10"></span><span style="height: 73%" title="Oct 22: 8"></span><span style="height: 82%" title="Oct 23: 9"></span><span style="height: 64%" title="Oct 24: 7"></span><span class="we" style="height: 27%" title="Oct 25: 3"></span><span class="we" style="height: 18%" title="Oct 26: 2"></span><span style="height: 100%" title="Oct 27: 11"></span><span style="height: 91%" title="Oct 28: 10"></span><span style="height: 82%" title="Oct 29: 9"></span>
+        </div>
+        <div class="axis"><span>Sep 30</span><span>Oct 14</span><span>Today</span></div>
+      </section>
+
+      <div class="grid-2">
+        <section class="card tight">
+          <h2>Where you work</h2>
+          <ul class="bars">
+            <li title="Claude Code: 134 sessions"><span>Claude Code</span><span class="bar" style="width: 100%"></span><span class="r">134</span></li>
+            <li title="Codex: 41 sessions"><span>Codex</span><span class="bar" style="width: 31%"></span><span class="r">41</span></li>
+            <li title="Cursor: 13 sessions"><span>Cursor</span><span class="bar" style="width: 10%"></span><span class="r">13</span></li>
+          </ul>
+        </section>
+        <section class="card tight stack" style="gap: 8px">
+          <h2>Suggestions</h2>
+          <ul class="list">
+            <li><span><span class="done" aria-label="Applied">✓</span> pr-reviewer: work from the diff <span class="hint">−31% tokens</span></span><span class="hint">Applied Mon</span></li>
+            <li><span><span class="done" aria-label="Applied">✓</span> github MCP: drop 11 unused tools <span class="hint">−2.4k per session</span></span><span class="hint">Applied Oct 16</span></li>
+            <li><span>k8s-debug idle for 48 days</span><a class="btn btn-ghost btn-sm" href="01-home.html">Review</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="08-cli-update.html">← Back</a><a href="index.html">Collection</a><a href="10-team-insights.html">Next →</a></nav>
+</body>
+</html>

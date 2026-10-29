@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.3 pr-reviewer · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+<style>
+  .hgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+  .h { padding: 14px; border: 1px solid var(--line); border-radius: 10px; font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+  dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 14px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html" aria-current="page">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div>
+          <p class="crumbs"><a href="02-resources.html">Resources</a> / pr-reviewer</p>
+          <div class="row" style="gap: 10px"><h1>pr-reviewer</h1><span class="pill">Skill</span><span class="pill mono">v4</span><span class="pill pill-accent">Shared</span></div>
+        </div>
+        <div class="row" style="gap: 8px"><a class="btn btn-ghost" href="#">Edit</a><a class="btn btn-primary" href="#">Share</a></div>
+      </div>
+
+      <nav class="tabs" aria-label="Resource"><a href="03-resource.html" aria-current="page">Overview</a><a href="04-conversion.html">Harnesses</a><a href="05-versions.html">Versions · 4</a><a href="06-resource-insights.html">Insights</a></nav>
+
+      <div class="split">
+        <div class="stack" style="gap: 16px">
+          <section class="card tight stack" style="gap: 10px">
+            <h2>What it does</h2>
+            <p>Reviews the current PR against Acme's conventions. Uses the diff from the github MCP once, flags risky migrations, and writes comments as suggestions instead of edits.</p>
+            <p class="hint">From the description in SKILL.md.</p>
+          </section>
+
+          <section class="card tight stack" style="gap: 12px">
+            <div class="row" style="justify-content: space-between"><h2>Works in</h2><a class="hint" href="04-conversion.html">See each conversion</a></div>
+            <div class="hgrid">
+              <div class="h s-native"><strong>Claude Code</strong><span><span class="dot"></span>Native</span></div>
+              <div class="h s-conv"><strong>Codex</strong><span><span class="dot"></span>Converted · tested</span></div>
+              <div class="h s-conv"><strong>Cursor</strong><span><span class="dot"></span>Converted · tested</span></div>
+              <div class="h s-conv"><strong>Gemini CLI</strong><span><span class="dot"></span>Converted · tested</span></div>
+              <div class="h s-conv"><strong>OpenCode</strong><span><span class="dot"></span>Converted · tested</span></div>
+            </div>
+          </section>
+
+          <section class="card tight stack" style="gap: 12px">
+            <h2>Install it somewhere else</h2>
+            <p class="hint">Already signed in? Tell your agent:</p>
+            <div class="cmd"><code>observal pull pr-reviewer</code><button class="btn btn-sm" type="button">Copy</button></div>
+            <p class="hint">New to Resource0? Use <a href="#">Share</a> to get the one-line installer.</p>
+          </section>
+        </div>
+
+        <aside class="card tight stack" style="gap: 16px">
+          <dl>
+            <dt>Owner</dt><dd>Raja</dd>
+            <dt>Source</dt><dd class="mono">~/.claude/skills/pr-reviewer</dd>
+            <dt>Synced</dt><dd>Mon from raja-mbp</dd>
+            <dt>Needs</dt><dd>github MCP <span class="hint">(installed with it)</span></dd>
+            <dt>Runs · 7d</dt><dd>118</dd>
+          </dl>
+          <div class="stack" style="gap: 8px">
+            <span class="hint">Installed by 5 of 7 members</span>
+            <div class="avs"><span class="av sm">R</span><span class="av sm">H</span><span class="av sm">K</span><span class="av sm">P</span><span class="av sm">S</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="02-resources.html">← Back</a><a href="index.html">Collection</a><a href="04-conversion.html">Next →</a></nav>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.6 Resource insights · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html" aria-current="page">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div>
+          <p class="crumbs"><a href="02-resources.html">Resources</a> / pr-reviewer</p>
+          <div class="row" style="gap: 10px"><h1>pr-reviewer</h1><span class="pill">Skill</span><span class="pill mono">v4</span><span class="pill pill-accent">Shared</span></div>
+        </div>
+        <div class="seg" role="group" aria-label="Time range"><a href="06-resource-insights.html" aria-current="page">7 days</a><a href="#">30 days</a></div>
+      </div>
+
+      <nav class="tabs" aria-label="Resource"><a href="03-resource.html">Overview</a><a href="#">Harnesses</a><a href="05-versions.html">Versions · 4</a><a href="06-resource-insights.html" aria-current="page">Insights</a></nav>
+
+      <div class="kpis">
+        <div class="card kpi"><span class="hint">Runs</span><div class="v">118</div><span class="d">by 5 people</span></div>
+        <div class="card kpi"><span class="hint">Finished the review</span><div class="v">94%</div><span class="d">7 runs stopped early</span></div>
+        <div class="card kpi"><span class="hint">Tokens per run</span><div class="v">18.2k</div><span class="d"><span class="up">↓ 31%</span> since v4</span></div>
+        <div class="card kpi"><span class="hint">github MCP calls per run</span><div class="v">2.1</div><span class="d"><span class="up">↓ from 9.4</span></span></div>
+      </div>
+
+      <div class="grid-2">
+        <section class="card tight">
+          <h2>Runs by harness</h2>
+          <ul class="bars">
+            <li title="Claude Code: 64 runs"><span>Claude Code</span><span class="bar" style="width: 100%"></span><span class="r">64</span></li>
+            <li title="Codex: 31 runs"><span>Codex</span><span class="bar" style="width: 48%"></span><span class="r">31</span></li>
+            <li title="Cursor: 23 runs"><span>Cursor</span><span class="bar" style="width: 36%"></span><span class="r">23</span></li>
+            <li title="Gemini CLI: 0 runs"><span>Gemini CLI</span><span class="bar muted" style="width: 2px"></span><span class="r">0</span></li>
+            <li title="OpenCode: 0 runs"><span>OpenCode</span><span class="bar muted" style="width: 2px"></span><span class="r">0</span></li>
+          </ul>
+        </section>
+        <section class="card tight">
+          <h2>Tokens per run, by version</h2>
+          <ul class="bars">
+            <li title="v2: 31.0k tokens per run"><span class="mono">v2</span><span class="bar muted" style="width: 100%"></span><span class="r">31.0k</span></li>
+            <li title="v3: 26.4k tokens per run"><span class="mono">v3</span><span class="bar muted" style="width: 85%"></span><span class="r">26.4k</span></li>
+            <li title="v4: 18.2k tokens per run"><span class="mono">v4</span><span class="bar" style="width: 59%"></span><span class="r">18.2k</span></li>
+          </ul>
+          <p class="hint" style="margin-top: 14px">v1 ran before insights were on.</p>
+        </section>
+      </div>
+
+      <section class="card tight stack" style="gap: 8px">
+        <h2>Why runs stopped early</h2>
+        <ul class="list">
+          <li><span>github MCP timed out on PRs with more than 80 files</span><span class="hint">4 runs · Codex, Claude Code</span></li>
+          <li><span>Draft PRs have no diff yet</span><span class="hint">3 runs · Cursor</span></li>
+        </ul>
+        <div class="suggest" style="margin-top: 8px">
+          <div class="stack" style="gap: 4px; flex: 1 1 320px">
+            <strong>Skip draft PRs and say so, instead of failing.</strong>
+            <span class="hint">One line in SKILL.md. We'll test it in all 5 harnesses before you publish it as v5.</span>
+          </div>
+          <a class="btn btn-primary btn-sm" href="#">Draft v5</a>
+        </div>
+      </section>
+      <p class="hint">Counts and timings only. Resource0 never stores prompt text or file contents. Sample data.</p>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="05-versions.html">← Back</a><a href="index.html">Collection</a><a href="07-cli-sync.html">Next →</a></nav>
+</body>
+</html>

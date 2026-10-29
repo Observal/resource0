@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.14 Sync and privacy · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+<style>
+  .set { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .set:last-child { border-bottom: 0; }
+  .set > span:first-child { display: flex; flex-direction: column; gap: 2px; }
+  .never { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .never div { padding: 14px; border-radius: 10px; background: var(--ground); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html">Connectors</a>
+      <a href="14-settings.html" aria-current="page">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px; max-width: 860px">
+      <div class="ph">
+        <div class="stack" style="gap: 4px">
+          <h1>Sync &amp; privacy</h1>
+          <p class="hint">What leaves your machine, and when. These apply to raja@acme.dev on all your devices.</p>
+        </div>
+      </div>
+
+      <section class="card tight">
+        <h2>What gets synced</h2>
+        <div class="set"><span><strong>Skills, subagents, prompts and rules</strong><span class="hint">The files, as written</span></span><span class="switch on" role="img" aria-label="On"></span></div>
+        <div class="set"><span><strong>MCP server configs</strong><span class="hint">Secrets are replaced with placeholders like <code>${GITHUB_TOKEN}</code> before upload</span></span><span class="switch on" role="img" aria-label="On"></span></div>
+        <div class="set"><span><strong>Hooks</strong><span class="hint">Scripts are shown to teammates before they install them</span></span><span class="switch on" role="img" aria-label="On"></span></div>
+        <div class="set"><span><strong>Sync at the end of every session</strong><span class="hint">Off means you run <code>observal sync</code> yourself</span></span><span class="switch on" role="img" aria-label="On"></span></div>
+        <div class="set"><span><strong>Never sync these paths</strong><span class="hint mono">~/.claude/skills/personal-*<br>**/.env*</span></span><a class="btn btn-ghost btn-sm" href="#">Edit</a></div>
+      </section>
+
+      <section class="card tight">
+        <h2>Updates from teammates</h2>
+        <div class="set"><span><strong>When a shared resource gets a new version</strong><span class="hint">Shown in the two-line banner at session start</span></span>
+          <div class="seg" role="group" aria-label="Update mode"><a href="#" aria-current="page">Update</a><a href="#">Ask me</a><a href="#">Off</a></div></div>
+      </section>
+
+      <section class="card tight stack" style="gap: 12px">
+        <div class="row" style="justify-content: space-between"><h2>Insights</h2><span class="switch on" role="img" aria-label="On"></span></div>
+        <p class="hint">We collect which resource or tool ran, in which harness, how long it took, token counts and errors.</p>
+        <div class="never">
+          <div><strong>Never uploaded</strong><br>Your prompts, your agent's replies, file contents, diffs</div>
+          <div><strong>Never shown to teammates</strong><br>Your sessions. Team view only counts runs per resource.</div>
+        </div>
+      </section>
+
+      <section class="card tight">
+        <h2>Devices</h2>
+        <div class="set"><span><strong>raja-mbp</strong><span class="hint">macOS · Claude Code, Codex · this device</span></span><span class="hint">Synced 2 min ago</span></div>
+        <div class="set"><span><strong>raja-desktop</strong><span class="hint">Windows WSL · Claude Code, Cursor</span></span><a class="btn btn-ghost btn-sm" href="#">Sign out</a></div>
+      </section>
+
+      <div class="row" style="justify-content: space-between">
+        <span class="hint">Removes everything you've uploaded. Shared resources disappear for teammates at their next session.</span>
+        <a class="btn btn-ghost btn-sm" href="#" style="color: #B42318; border-color: #F1B8B3">Delete my cloud copy</a>
+      </div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="13-connectors.html">← Back</a><a href="index.html">Collection</a></nav>
+</body>
+</html>

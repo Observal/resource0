@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.13 Connectors · Resource0</title>
+<link rel="stylesheet" href="../shared/r0.css">
+<link rel="stylesheet" href="product.css">
+<style>
+  .conn { display: flex; flex-direction: column; gap: 14px; }
+  .conn-h { display: flex; gap: 14px; align-items: center; }
+  .logo-box { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-weight: 600; flex: none; background: var(--ground); }
+  .tools { display: flex; gap: 6px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="logo" href="index.html"><span class="logo-mark">0</span>Resource0</a>
+    <div class="ws"><span class="ws-av">A</span><span><strong style="display: block">Acme AI</strong><span class="hint">7 members</span></span></div>
+    <nav class="side-nav" aria-label="Main">
+      <a href="01-home.html">Home</a>
+      <a href="02-resources.html">Resources <span class="count">21</span></a>
+      <span class="grp">Insights</span>
+      <a href="09-my-insights.html">Just me</a>
+      <a href="10-team-insights.html">Team</a>
+      <span class="grp">Workspace</span>
+      <a href="11-members.html">Members <span class="count">7</span></a>
+      <a href="13-connectors.html" aria-current="page">Connectors</a>
+      <a href="14-settings.html">Sync &amp; privacy</a>
+    </nav>
+    <div class="side-foot"><span class="live"></span>raja-mbp synced 2 min ago<br>raja@acme.dev</div>
+  </aside>
+  <main class="main">
+    <div class="wrap stack" style="gap: 20px">
+      <div class="ph">
+        <div class="stack" style="gap: 4px">
+          <h1>Connectors</h1>
+          <p class="hint">Ready-made MCP servers for people who'd rather not edit JSON. Connect once and every harness on your machines gets it.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="card tight conn">
+          <div class="conn-h"><span class="logo-box" aria-hidden="true">G</span><div><h2>Google Workspace</h2><span class="hint">Gmail, Calendar, Drive, Docs</span></div></div>
+          <p>Lets your agent read and draft email, find meeting times and pull docs into context. You sign in with Google, the same way Claude Code does it.</p>
+          <div class="tools"><span class="pill">search_threads</span><span class="pill">create_draft</span><span class="pill">list_events</span><span class="pill">suggest_time</span><span class="pill">read_file</span><span class="pill">+9</span></div>
+          <div class="row" style="justify-content: space-between"><span class="hint">Used by 3 people in Acme AI</span><a class="btn btn-primary btn-sm" href="#">Connect Google</a></div>
+        </section>
+
+        <section class="card tight conn" style="border-style: dashed">
+          <div class="conn-h"><span class="logo-box" aria-hidden="true">?</span><div><h2>Second connector</h2><span class="hint">Not decided</span></div></div>
+          <p>The plan calls for two. Candidates: Slack, Notion, Linear, Jira. Pick whichever shows up most in synced MCP configs during alpha.</p>
+          <div class="row" style="justify-content: flex-end"><span class="pill pill-warn">Open question</span></div>
+        </section>
+      </div>
+
+      <div class="warnbox">For PMs and other non-engineers: this is the one screen where nothing needs a terminal. "Connect Google" opens the Google sign-in, and the CLI picks up the new server at the next session.</div>
+    </div>
+  </main>
+</div>
+<nav class="proto-nav" aria-label="Prototype"><a href="12-limit.html">← Back</a><a href="index.html">Collection</a><a href="14-settings.html">Next →</a></nav>
+</body>
+</html>
